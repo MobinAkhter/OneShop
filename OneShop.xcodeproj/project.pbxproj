@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B34B7CC127398CFD00498AE7 /* OneShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CC027398CFD00498AE7 /* OneShopApp.swift */; };
+		B34B7CC527398CFD00498AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34B7CC427398CFD00498AE7 /* Assets.xcassets */; };
+		B34B7CC827398CFD00498AE7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34B7CC727398CFD00498AE7 /* Preview Assets.xcassets */; };
+		B34B7CD627398DFB00498AE7 /* InputTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CD527398DFB00498AE7 /* InputTextFieldView.swift */; };
+		B34B7CDA27398E0900498AE7 /* InputPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CD927398E0900498AE7 /* InputPasswordView.swift */; };
+		B34B7CDD27398E1400498AE7 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CDC27398E1400498AE7 /* ButtonView.swift */; };
+		B34B7CE027398E2200498AE7 /* CloseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CDF27398E2200498AE7 /* CloseModifier.swift */; };
+		B34B7CE527398E6300498AE7 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CE427398E6300498AE7 /* SessionService.swift */; };
+		B34B7CE927398E7800498AE7 /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CE827398E7800498AE7 /* SessionUserDetails.swift */; };
+		B34B7CED27398F4C00498AE7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B34B7CEC27398F4C00498AE7 /* FirebaseAuth */; };
+		B34B7CEF27398F4C00498AE7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B34B7CEE27398F4C00498AE7 /* FirebaseDatabase */; };
+		B34B7CF127398F4C00498AE7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B34B7CF027398F4C00498AE7 /* FirebaseFirestore */; };
+		B34B7CF5273995F800498AE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B34B7CF4273995F800498AE7 /* GoogleService-Info.plist */; };
+		B34B7CFD2739977D00498AE7 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CFC2739977D00498AE7 /* ForgotPasswordView.swift */; };
+		B34B7D00273997AC00498AE7 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CFF273997AC00498AE7 /* ForgotPasswordService.swift */; };
+		B34B7D03273997CC00498AE7 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D02273997CC00498AE7 /* ForgotPasswordViewModel.swift */; };
+		B34B7D082739982200498AE7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D072739982200498AE7 /* HomeView.swift */; };
+		B34B7D112739988500498AE7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D102739988500498AE7 /* RegisterView.swift */; };
+		B34B7D15273998B300498AE7 /* RegistrationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D14273998B300498AE7 /* RegistrationDetails.swift */; };
+		B34B7D18273998D700498AE7 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D17273998D700498AE7 /* RegistrationService.swift */; };
+		B34B7D1B2739990300498AE7 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D1A2739990300498AE7 /* RegistrationViewModel.swift */; };
+		B34B7D232739997100498AE7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D222739997100498AE7 /* LoginView.swift */; };
+		B34B7D262739998400498AE7 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D252739998400498AE7 /* LoginCredentials.swift */; };
+		B34B7D292739999500498AE7 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D282739999500498AE7 /* LoginService.swift */; };
+		B34B7D2C273999A600498AE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D2B273999A600498AE7 /* LoginViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B34B7CBD27398CFD00498AE7 /* OneShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34B7CC027398CFD00498AE7 /* OneShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneShopApp.swift; sourceTree = "<group>"; };
+		B34B7CC427398CFD00498AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B34B7CC727398CFD00498AE7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B34B7CC927398CFD00498AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B34B7CD527398DFB00498AE7 /* InputTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldView.swift; sourceTree = "<group>"; };
+		B34B7CD927398E0900498AE7 /* InputPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordView.swift; sourceTree = "<group>"; };
+		B34B7CDC27398E1400498AE7 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		B34B7CDF27398E2200498AE7 /* CloseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseModifier.swift; sourceTree = "<group>"; };
+		B34B7CE427398E6300498AE7 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		B34B7CE827398E7800498AE7 /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
+		B34B7CF4273995F800498AE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B34B7CFC2739977D00498AE7 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		B34B7CFF273997AC00498AE7 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
+		B34B7D02273997CC00498AE7 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		B34B7D072739982200498AE7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B34B7D102739988500498AE7 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		B34B7D14273998B300498AE7 /* RegistrationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDetails.swift; sourceTree = "<group>"; };
+		B34B7D17273998D700498AE7 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
+		B34B7D1A2739990300498AE7 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		B34B7D222739997100498AE7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B34B7D252739998400498AE7 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		B34B7D282739999500498AE7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B34B7D2B273999A600498AE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B34B7CBA27398CFD00498AE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B34B7CEF27398F4C00498AE7 /* FirebaseDatabase in Frameworks */,
+				B34B7CED27398F4C00498AE7 /* FirebaseAuth in Frameworks */,
+				B34B7CF127398F4C00498AE7 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B34B7CB427398CFD00498AE7 = {
+			isa = PBXGroup;
+			children = (
+				B34B7CBF27398CFD00498AE7 /* OneShop */,
+				B34B7CBE27398CFD00498AE7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B34B7CBE27398CFD00498AE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CBD27398CFD00498AE7 /* OneShop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B34B7CBF27398CFD00498AE7 /* OneShop */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CF4273995F800498AE7 /* GoogleService-Info.plist */,
+				B34B7CD327398D6500498AE7 /* Feature */,
+				B34B7CD027398D4900498AE7 /* Base */,
+				B34B7CC027398CFD00498AE7 /* OneShopApp.swift */,
+				B34B7CC427398CFD00498AE7 /* Assets.xcassets */,
+				B34B7CC927398CFD00498AE7 /* Info.plist */,
+				B34B7CC627398CFD00498AE7 /* Preview Content */,
+			);
+			path = OneShop;
+			sourceTree = "<group>";
+		};
+		B34B7CC627398CFD00498AE7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CC727398CFD00498AE7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B34B7CD027398D4900498AE7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CD227398D5800498AE7 /* Views */,
+				B34B7CD127398D5000498AE7 /* Modifier */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B34B7CD127398D5000498AE7 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CDF27398E2200498AE7 /* CloseModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		B34B7CD227398D5800498AE7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CD527398DFB00498AE7 /* InputTextFieldView.swift */,
+				B34B7CD927398E0900498AE7 /* InputPasswordView.swift */,
+				B34B7CDC27398E1400498AE7 /* ButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B34B7CD327398D6500498AE7 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D1D2739994000498AE7 /* Login */,
+				B34B7D0B2739984600498AE7 /* Register */,
+				B34B7D052739980400498AE7 /* Home */,
+				B34B7CF82739974E00498AE7 /* Forgot Password */,
+				B34B7CD427398D6D00498AE7 /* Session */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		B34B7CD427398D6D00498AE7 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CE327398E5100498AE7 /* Model */,
+				B34B7CE227398E4800498AE7 /* Service */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		B34B7CE227398E4800498AE7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CE427398E6300498AE7 /* SessionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B34B7CE327398E5100498AE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CE827398E7800498AE7 /* SessionUserDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34B7CF82739974E00498AE7 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CFB2739976900498AE7 /* View */,
+				B34B7CFA2739976300498AE7 /* Service */,
+				B34B7CF92739975700498AE7 /* ViewModel */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		B34B7CF92739975700498AE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D02273997CC00498AE7 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B34B7CFA2739976300498AE7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CFF273997AC00498AE7 /* ForgotPasswordService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B34B7CFB2739976900498AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7CFC2739977D00498AE7 /* ForgotPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34B7D052739980400498AE7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D062739980E00498AE7 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B34B7D062739980E00498AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D072739982200498AE7 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34B7D0B2739984600498AE7 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D0F2739987400498AE7 /* View */,
+				B34B7D0E2739986D00498AE7 /* Model */,
+				B34B7D0D2739985800498AE7 /* Service */,
+				B34B7D0C2739985000498AE7 /* ViewModel */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B34B7D0C2739985000498AE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D1A2739990300498AE7 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B34B7D0D2739985800498AE7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D17273998D700498AE7 /* RegistrationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B34B7D0E2739986D00498AE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D14273998B300498AE7 /* RegistrationDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34B7D0F2739987400498AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D102739988500498AE7 /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34B7D1D2739994000498AE7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D212739996100498AE7 /* View */,
+				B34B7D202739995700498AE7 /* Model */,
+				B34B7D1F2739994F00498AE7 /* Service */,
+				B34B7D1E2739994800498AE7 /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B34B7D1E2739994800498AE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D2B273999A600498AE7 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B34B7D1F2739994F00498AE7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D282739999500498AE7 /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B34B7D202739995700498AE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D252739998400498AE7 /* LoginCredentials.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34B7D212739996100498AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34B7D222739997100498AE7 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B34B7CBC27398CFD00498AE7 /* OneShop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B34B7CCC27398CFD00498AE7 /* Build configuration list for PBXNativeTarget "OneShop" */;
+			buildPhases = (
+				B34B7CB927398CFD00498AE7 /* Sources */,
+				B34B7CBA27398CFD00498AE7 /* Frameworks */,
+				B34B7CBB27398CFD00498AE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneShop;
+			packageProductDependencies = (
+				B34B7CEC27398F4C00498AE7 /* FirebaseAuth */,
+				B34B7CEE27398F4C00498AE7 /* FirebaseDatabase */,
+				B34B7CF027398F4C00498AE7 /* FirebaseFirestore */,
+			);
+			productName = OneShop;
+			productReference = B34B7CBD27398CFD00498AE7 /* OneShop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B34B7CB527398CFD00498AE7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					B34B7CBC27398CFD00498AE7 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = B34B7CB827398CFD00498AE7 /* Build configuration list for PBXProject "OneShop" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B34B7CB427398CFD00498AE7;
+			packageReferences = (
+				B34B7CEB27398F4C00498AE7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = B34B7CBE27398CFD00498AE7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B34B7CBC27398CFD00498AE7 /* OneShop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B34B7CBB27398CFD00498AE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B34B7CC827398CFD00498AE7 /* Preview Assets.xcassets in Resources */,
+				B34B7CC527398CFD00498AE7 /* Assets.xcassets in Resources */,
+				B34B7CF5273995F800498AE7 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B34B7CB927398CFD00498AE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B34B7D262739998400498AE7 /* LoginCredentials.swift in Sources */,
+				B34B7CDA27398E0900498AE7 /* InputPasswordView.swift in Sources */,
+				B34B7D15273998B300498AE7 /* RegistrationDetails.swift in Sources */,
+				B34B7CE527398E6300498AE7 /* SessionService.swift in Sources */,
+				B34B7CFD2739977D00498AE7 /* ForgotPasswordView.swift in Sources */,
+				B34B7CDD27398E1400498AE7 /* ButtonView.swift in Sources */,
+				B34B7CE927398E7800498AE7 /* SessionUserDetails.swift in Sources */,
+				B34B7D18273998D700498AE7 /* RegistrationService.swift in Sources */,
+				B34B7D082739982200498AE7 /* HomeView.swift in Sources */,
+				B34B7CC127398CFD00498AE7 /* OneShopApp.swift in Sources */,
+				B34B7D03273997CC00498AE7 /* ForgotPasswordViewModel.swift in Sources */,
+				B34B7D1B2739990300498AE7 /* RegistrationViewModel.swift in Sources */,
+				B34B7D00273997AC00498AE7 /* ForgotPasswordService.swift in Sources */,
+				B34B7D292739999500498AE7 /* LoginService.swift in Sources */,
+				B34B7D112739988500498AE7 /* RegisterView.swift in Sources */,
+				B34B7CD627398DFB00498AE7 /* InputTextFieldView.swift in Sources */,
+				B34B7D232739997100498AE7 /* LoginView.swift in Sources */,
+				B34B7D2C273999A600498AE7 /* LoginViewModel.swift in Sources */,
+				B34B7CE027398E2200498AE7 /* CloseModifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B34B7CCA27398CFD00498AE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B34B7CCB27398CFD00498AE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B34B7CCD27398CFD00498AE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OneShop/Preview Content\"";
+				DEVELOPMENT_TEAM = 3J25VQ38JS;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OneShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = akhtemob.sheridancollege.ca.OneShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B34B7CCE27398CFD00498AE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OneShop/Preview Content\"";
+				DEVELOPMENT_TEAM = 3J25VQ38JS;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OneShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = akhtemob.sheridancollege.ca.OneShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B34B7CB827398CFD00498AE7 /* Build configuration list for PBXProject "OneShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B34B7CCA27398CFD00498AE7 /* Debug */,
+				B34B7CCB27398CFD00498AE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B34B7CCC27398CFD00498AE7 /* Build configuration list for PBXNativeTarget "OneShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B34B7CCD27398CFD00498AE7 /* Debug */,
+				B34B7CCE27398CFD00498AE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B34B7CEB27398F4C00498AE7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B34B7CEC27398F4C00498AE7 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B34B7CEB27398F4C00498AE7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B34B7CEE27398F4C00498AE7 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B34B7CEB27398F4C00498AE7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		B34B7CF027398F4C00498AE7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B34B7CEB27398F4C00498AE7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B34B7CB527398CFD00498AE7 /* Project object */;
+}
