@@ -75,6 +75,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846EFC332739EC17000D8539 /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
+		846EFC342739EC21000D8539 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		846EFC352739EC31000D8539 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		B34B7CB427398CFD00498AE7 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +164,9 @@
 		B34B7CD327398D6500498AE7 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				846EFC352739EC31000D8539 /* Location */,
+				846EFC342739EC21000D8539 /* Products */,
+				846EFC332739EC17000D8539 /* ShoppingCart */,
 				B34B7D1D2739994000498AE7 /* Login */,
 				B34B7D0B2739984600498AE7 /* Register */,
 				B34B7D052739980400498AE7 /* Home */,
