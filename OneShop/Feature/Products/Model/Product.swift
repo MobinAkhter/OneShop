@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
-struct Product: Hashable, Codable{
-    @DocumentID var id : String? = UUID().uuidString
+
+struct Product: Hashable{
+    var id = UUID()
     var productName : String = ""
     var category : String = ""
     
@@ -22,15 +22,6 @@ struct Product: Hashable, Codable{
         self.category = category
     }
     
-    init?(dictionary: [String : Any]){
-        guard let productName = dictionary["productName"] as? String else{
-            return nil
-        }
-        
-        guard let category = dictionary["category"] as? String else{
-            return nil
-        }
-        
-        self.init(productName: productName, category: category)
-    }
+   
 }
+
