@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84C9AB53274BF39E0000DA06 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9AB52274BF39E0000DA06 /* Product.swift */; };
 		84CAB44C2748BE5800CBBDCD /* ProductSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CAB44B2748BE5800CBBDCD /* ProductSelection.swift */; };
 		B34B7CC127398CFD00498AE7 /* OneShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7CC027398CFD00498AE7 /* OneShopApp.swift */; };
 		B34B7CC527398CFD00498AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34B7CC427398CFD00498AE7 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84C9AB52274BF39E0000DA06 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		84CAB44B2748BE5800CBBDCD /* ProductSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelection.swift; sourceTree = "<group>"; };
 		B34B7CBD27398CFD00498AE7 /* OneShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34B7CC027398CFD00498AE7 /* OneShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneShopApp.swift; sourceTree = "<group>"; };
@@ -77,10 +79,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84CAB44A2748BE4300CBBDCD /* Products */ = {
+		84C9AB50274BF37B0000DA06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84C9AB52274BF39E0000DA06 /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84C9AB51274BF3850000DA06 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				84CAB44B2748BE5800CBBDCD /* ProductSelection.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84CAB44A2748BE4300CBBDCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84C9AB51274BF3850000DA06 /* View */,
+				84C9AB50274BF37B0000DA06 /* Model */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -422,6 +441,7 @@
 				B34B7D232739997100498AE7 /* LoginView.swift in Sources */,
 				B34B7D2C273999A600498AE7 /* LoginViewModel.swift in Sources */,
 				B34B7CE027398E2200498AE7 /* CloseModifier.swift in Sources */,
+				84C9AB53274BF39E0000DA06 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
