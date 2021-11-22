@@ -9,227 +9,254 @@ import SwiftUI
 
 struct ProductSelection: View {
     
-    @State private var selectedElectronic = Electronics.Phones.rawValue
-    @State private var selectedFoodDrinks = FoodDrinks.Healthy.rawValue
+   
     @State private var selected: Int = 1
-    
-  
-    enum Electronics: String, CaseIterable{
-        case TV = "TV"
-        case Phones = "Phones"
-        case Laptops = "Laptops"
-        case PS5 = "PS5"
-        case Xbox = "Xbox Series X"
-        case Switch = "Nintendo Switch"
-        case Headphones = "Headphones"
-        case PCs = "PCs"
-    }
-    
-    enum FoodDrinks: String, CaseIterable{
-        case Healthy = "Fruits & Vegetables"
-        case Water = "Water"
-        case Juice = "Juice"
-        case Soda = "Soda"
-        case FastFood = "Fast Food"
-        case Sugar = " Candy & Chocolate"
-        case Snack = "Snacks"
-        case Meat = "Meat"
-    }
-    
-    enum Health: String, CaseIterable{
-        case Medicine = "Medicine"
-        case Soap = "Soap"
-        case Shampoo = "Shampoo"
-        case Ditergent = "Ditergent"
-        case ToiletPaper = "Toilet Paper"
-        case ToothBrush = "Tooth Brush"
-        case SkinCare = "Skin Care Products"
-        case Shave = "Shaving Kit"
-        case HealthProducts = "Health Products"
-        case ToothPaste = "Tooth Paste"
-    }
-    
-    enum Attire: String, CaseIterable{
-        case Shirts = "Shirts"
-        case Pants = "Pants"
-        case Sweater = "Sweaters"
-        case Shoes = "Shoes"
-        case Socks = "Socks"
-        case MakeUp = "Make Up Gear"
-        case Suit = "Suits"
-        case Jewls = "Jewellery"
-        case Jacket = "Jackets"
-        case Hat = "Hats"
-        case Glasses = "Glasses"
-    }
-    
-    enum Entertainment: String, CaseIterable{
-        case Movies = "Movies"
-        case Games = "Video Games"
-        case Toys = "Toys"
-        case Sport = "Sports Gear"
-        case Bike = "Bicycles"
-    }
-    
-    enum School: String , CaseIterable{
-        case Books = "Books"
-        case NoteBook = "NoteBooks"
-        case Bags = "Bags"
-        case Pencils = "Pencils"
-        case Pens = "Pens"
-        case Eraser = "Eraser"
-        case Markers = "Markers"
-        case Crayons = "Crayons"
-        case Poster = "Poster Boards"
-        case Caclulator = "Calculators"
-        case Sharpeners = "Sharpeners"
-    }
-    
-    enum HouseHold : String, CaseIterable{
-        case Furniture = "Furniture"
-        case Plants = "Plants"
-        case Kitchen = "Kitchen Items (Utensils, Fridges)"
-        case Towels = "Towels"
-        case Bed = "Beds"
-        
-    }
-    
+    @State private var productList = [Product]()
     
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 15){
-            Group{
-            Text("Select Items")
-                .font(.title)
-            Text("Item selected will be added to your cart")
+        
+        VStack{
             Text("Categories")
-                .font(.largeTitle)
-            }
-            Group{
-            //Picker for electronics
-            Picker("Electronics", selection: $selectedElectronic){
-                Text("TV").tag(Electronics.TV.rawValue)
-                Text("Phones").tag(Electronics.Phones.rawValue)
-                Text("Laptops").tag(Electronics.Laptops.rawValue)
-                Text("PS5").tag(Electronics.PS5.rawValue)
-                Text("Xbox Series X").tag(Electronics.Xbox.rawValue)
-                Text("Nintendo Switch").tag(Electronics.Switch.rawValue)
-                Text("Headphones").tag(Electronics.Headphones.rawValue)
-                Text("PCs").tag(Electronics.PCs.rawValue)
-            }
-            }
-            
-            Group{
-            Text("Food & Drinks")
-                .font(.title3)
-            
-            //Picker for food and drinks
-            Picker("FoodDrinks", selection: $selectedElectronic){
-                Text("Fruits & Vegetables").tag(FoodDrinks.Healthy.rawValue)
-                Text("Water").tag(FoodDrinks.Water.rawValue)
-                Text("Juice").tag(FoodDrinks.Juice.rawValue)
-                Text("Soda").tag(FoodDrinks.Soda.rawValue)
-                Text("Fast Food").tag(FoodDrinks.FastFood.rawValue)
-                Text("Candy & Chocolate").tag(FoodDrinks.Sugar.rawValue)
-                Text("Snacks").tag(FoodDrinks.Snack.rawValue)
-                Text("Meat").tag(FoodDrinks.Meat.rawValue)
-            }
-            }
-            Group{
-            Text("Health")
-                .font(.title3)
-            
-            //Picker for health
-            Picker("Health", selection: $selectedElectronic){
-                Text("Medicine").tag(Health.Medicine.rawValue)
-                Text("Soap").tag(Health.Soap.rawValue)
-                Text("Shampoo").tag(Health.Shampoo.rawValue)
-                Text("Ditergent").tag(Health.Ditergent.rawValue)
-                Text("Toilet Paper").tag(Health.ToiletPaper.rawValue)
-                Text("Tooth Brush").tag(Health.ToothBrush.rawValue)
-                Text("Tooth Paste").tag(Health.ToothPaste.rawValue)
-                Text("Skin Care Products").tag(Health.SkinCare.rawValue)
-                Text("Health Products").tag(Health.HealthProducts.rawValue)
-                Text("Shaving Kit").tag(Health.Shave.rawValue)
+                .font(.title2)
+            List{
+                Section(header: Text("Electonics")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Electronics"){
+                           CustomRowView(product: currentItem)
+                                .onTapGesture{
+                                    print("Selected \(currentItem.productName)")
+                                }
+                        }
+                    }
+                }//section 1
                 
-            }
-            }
-            Group{
-            
-            Text("Human Attire and Cosmetics")
-                .font(.title3)
-            //Picker for attire
-            Picker("Attire", selection: $selectedElectronic){
-                Text("Shirts").tag(Attire.Shirts.rawValue)
-                Text("Pants").tag(Attire.Pants.rawValue)
-                Text("Sweaters").tag(Attire.Sweater.rawValue)
-                Text("Shoes").tag(Attire.Shoes.rawValue)
-                Text("Make Up Gear").tag(Attire.MakeUp.rawValue)
-                Text("Suits").tag(Attire.Suit.rawValue)
-                Text("Jewellery").tag(Attire.Jewls.rawValue)
-                Text("Jackets").tag(Attire.Jacket.rawValue)
-                Text("Hats").tag(Attire.Hat.rawValue)
-                Text("Glasses").tag(Attire.Glasses.rawValue)
-           
-            }
-            }
-            Group{
-            Text("Entertainment")
-                .font(.title3)
-            //Picker for entertainment
-            Picker("Etnertainment", selection: $selectedElectronic){
-                Text("Movies").tag(Entertainment.Movies.rawValue)
-                Text("Video Games").tag(Entertainment.Games.rawValue)
-                Text("Toys").tag(Entertainment.Toys.rawValue)
-                Text("Sports Gear").tag(Entertainment.Sport.rawValue)
-                Text("Bicycles").tag(Entertainment.Bike.rawValue)
-           
-            }
+                Section(header: Text("Food & Drinks")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Food & Drinks"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                        }
+                    }
+                }//section 2
                 
-            }
+                Section(header: Text("Health")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Health"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                        }
+                    }
+                }//section 3
+                
+                Section(header: Text("Human Attire")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Human Attire"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                        }
+                    }
+                }//section 4
+                
+                Section(header: Text("Entertainment")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Entertainment"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                            
+                        }
+                    }
+                }//section 5
+                
+                Section(header: Text("School Supplies")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "School Supplies"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                        }
+                    }
+                }//section 6
+                
+                Section(header: Text("Household Items")){
+                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+                        
+                        if(currentItem.category == "Household Items"){
+                            CustomRowView(product: currentItem)
+                                 .onTapGesture{
+                                     print("Selected \(currentItem.productName)")
+                                 }
+                        }
+                    }
+                }//section 7
+                
             
-            Group{
-            Text("School Items")
-                .font(.title3)
-            
-            //Picker for school items
-            Picker("School", selection: $selectedElectronic){
-                Group{
-                Text("Books").tag(School.Books.rawValue)
-                Text("Note Books").tag(School.NoteBook.rawValue)
-                Text("Bags").tag(School.Bags.rawValue)
-                Text("Pencils").tag(School.Pencils.rawValue)
-                Text("Pens").tag(School.Pens.rawValue)
-                Text("Eraser").tag(School.Eraser.rawValue)
-                Text("Markers").tag(School.Markers.rawValue)
-                Text("Crayons").tag(School.Crayons.rawValue)
-                Text("Poster Boards").tag(School.Poster.rawValue)
-                Text("Calculators").tag(School.Caclulator.rawValue)
-                }
-                Group{
-                Text("Sharpeners").tag(School.Sharpeners.rawValue)
-                }
-           
-            }
-            }
-            Group{
-            Text("House Hold Items")
-                .font(.title3)
-            
-            //Picker for household items
-            Picker("HouseHold", selection: $selectedElectronic){
-                Text("Furniture").tag(HouseHold.Furniture.rawValue)
-                Text("Plants").tag(HouseHold.Plants.rawValue)
-                Text("Kitchen Items").tag(HouseHold.Kitchen.rawValue)
-                Text("Towels").tag(HouseHold.Towels.rawValue)
-                Text("Beds").tag(HouseHold.Bed.rawValue)
-           
-            }
-            }
-            Group{
-            Spacer()
+                
+                
             }
         }
+        .onAppear(){
+            self.loadProducts()
+        }
+    }
+    
+    private func loadProducts(){
+        //declaring electronics
+        let tv = Product(productName: "TV", category: "Electronics")
+        let phone = Product(productName: "Phones", category: "Electronics")
+        let laptops = Product(productName: "Laptops", category: "Electronics")
+        let ps5 = Product(productName: "PS5", category: "Electronics")
+        let xbox = Product(productName: "Xbox Series X", category: "Electronics")
+        let ninSwitch = Product(productName: "Nintendo Switch", category: "Electronics")
+        let headphones = Product(productName: "Head Phones", category: "Electronics")
+        let pc = Product(productName: "PCs", category: "Electronics")
+        let pcParts = Product(productName: "Computer Parts", category: "Electronics")
+        
+        self.productList.append(tv)
+        self.productList.append(phone)
+        self.productList.append(laptops)
+        self.productList.append(ps5)
+        self.productList.append(xbox)
+        self.productList.append(ninSwitch)
+        self.productList.append(headphones)
+        self.productList.append(pc)
+        self.productList.append(pcParts)
+        
+        //delcaring food & drinks
+        let healthy = Product(productName: "Fruits & Vegetbales", category: "Food & Drinks")
+        let water = Product(productName: "Water", category: "Food & Drinks")
+        let juice = Product(productName: "Juice", category: "Food & Drinks")
+        let soda = Product(productName: "Soda", category: "Food & Drinks")
+        let fast = Product(productName: "Fast Food", category: "Food & Drinks")
+        let candy = Product(productName: "Candy & Chocolate", category: "Food & Drinks")
+        let snack = Product(productName: "Snacks", category: "Food & Drinks")
+        let meat = Product(productName: "Meat", category: "Food & Drinks")
+        let frozen = Product(productName: "Frozen Food", category: "Food & Drinks")
+        
+        self.productList.append(healthy)
+        self.productList.append(water)
+        self.productList.append(juice)
+        self.productList.append(soda)
+        self.productList.append(fast)
+        self.productList.append(candy)
+        self.productList.append(snack)
+        self.productList.append(meat)
+        self.productList.append(frozen)
+        
+        //declaring health
+        let medicine = Product(productName: "Medicine", category: "Health")
+        let soap = Product(productName: "Soap", category: "Health")
+        let shampoo = Product(productName: "Shampoo", category: "Health")
+        let ditergent = Product(productName: "Ditergent", category: "Health")
+        let toiletPaper = Product(productName: "Toilet Paper", category: "Health")
+        let brush = Product(productName: "Tooth Brush", category: "Health")
+        let skinCare = Product(productName: "Skin Care Products", category: "Health")
+        let shave = Product(productName: "Shaving Kit", category: "Health")
+        let healthProducts = Product(productName: "Health Products", category: "Health")
+        let toothPaste = Product(productName: "Tooth Paste", category: "Health")
+        
+        self.productList.append(medicine)
+        self.productList.append(soap)
+        self.productList.append(shampoo)
+        self.productList.append(ditergent)
+        self.productList.append(toiletPaper)
+        self.productList.append(brush)
+        self.productList.append(skinCare)
+        self.productList.append(shave)
+        self.productList.append(healthProducts)
+        self.productList.append(toothPaste)
+        
+        
+        //declaring attire
+        let shirts = Product(productName: "Shirts", category: "Human Attire")
+        let pants = Product(productName: "Pants", category: "Human Attire")
+        let shoes = Product(productName: "Shoes", category: "Human Attire")
+        let socks = Product(productName: "Socks", category: "Human Attire")
+        let makeUp = Product(productName: "Make Up Gear", category: "Human Attire")
+        let suits = Product(productName: "Suits", category: "Human Attire")
+        let jewellery = Product(productName: "Jewellery", category: "Human Attire")
+        let jackets = Product(productName: "Jackets", category: "Human Attire")
+        let hats = Product(productName: "Hats", category: "Human Attire")
+        let glasses = Product(productName: "Glasses", category: "Human Attire")
+    
+        self.productList.append(shirts)
+        self.productList.append(pants)
+        self.productList.append(shoes)
+        self.productList.append(socks)
+        self.productList.append(makeUp)
+        self.productList.append(suits)
+        self.productList.append(jewellery)
+        self.productList.append(jackets)
+        self.productList.append(hats)
+        self.productList.append(glasses)
+        
+        //declaring entertainment
+        let movies = Product(productName: "Movies", category: "Entertainment")
+        let games  = Product(productName: "Video Games", category: "Entertainment")
+        let toys = Product(productName: "Toys", category: "Entertainment")
+        let sports = Product(productName: "Sports Gear", category: "Entertainment")
+        let bike = Product(productName: "Bicycles", category: "Entertainment")
+    
+        self.productList.append(movies)
+        self.productList.append(games)
+        self.productList.append(toys)
+        self.productList.append(sports)
+        self.productList.append(bike)
+       
+        
+        //declaring school products
+        let books = Product(productName: "Books", category: "School Supplies")
+        let noteBooks = Product(productName: "Note Books", category: "School Supplies")
+        let bags = Product(productName: "Bags", category: "School Supplies")
+        let pencils = Product(productName: "Pencils", category: "School Supplies")
+        let pens = Product(productName: "Pens", category: "School Supplies")
+        let erasers = Product(productName: "Erasers", category: "School Supplies")
+        let markers = Product(productName: "Markers", category: "School Supplies")
+        let crayons = Product(productName: "Crayons", category: "School Supplies")
+        let poster = Product(productName: "Poster Boards", category: "School Supplies")
+        let calculator = Product(productName: "Calculators", category: "School Supplies")
+        let sharpeners = Product(productName: "Sharpeners", category: "School Supplies")
+        
+        self.productList.append(books)
+        self.productList.append(noteBooks)
+        self.productList.append(bags)
+        self.productList.append(pencils)
+        self.productList.append(pens)
+        self.productList.append(erasers)
+        self.productList.append(markers)
+        self.productList.append(crayons)
+        self.productList.append(poster)
+        self.productList.append(calculator)
+        self.productList.append(sharpeners)
+        
+        //delcaring household items
+        let furniture = Product(productName: "Furniture", category: "Household Items")
+        let plants = Product(productName: "Plants", category: "Household Items")
+        let kitchen = Product(productName: "Kitchen Items (Utensils, Fridges)", category: "Household Items")
+        let towels = Product(productName: "Towels", category: "Household Items")
+        let beds = Product(productName: "Beds", category: "Household Items")
+    
+        self.productList.append(furniture)
+        self.productList.append(plants)
+        self.productList.append(kitchen)
+        self.productList.append(towels)
+        self.productList.append(beds)
+        
     }
 }
 
@@ -238,3 +265,23 @@ struct ProductSelection_Previews: PreviewProvider {
         ProductSelection()
     }
 }
+
+struct CustomRowView : View{
+    var product : Product
+    
+    var body: some View{
+    VStack(alignment: .leading){
+        Text("\(product.productName)")
+            .fontWeight(.bold)
+            
+        Text("Tap to Add to Cart")
+            .font(.callout)
+            .italic()
+
+        Spacer()
+    }.padding(20)
+        
+    }
+}
+
+
