@@ -98,14 +98,14 @@ struct ProductSelection: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15){
-            Text("Select Items (Item selected will be added to your cart)")
+            Group{
+            Text("Select Items")
                 .font(.title)
+            Text("Item selected will be added to your cart")
             Text("Categories")
                 .font(.largeTitle)
+            }
             Group{
-            Text("Electronics")
-                .font(.title3)
-           
             //Picker for electronics
             Picker("Electronics", selection: $selectedElectronic){
                 Text("TV").tag(Electronics.TV.rawValue)
@@ -226,10 +226,9 @@ struct ProductSelection: View {
            
             }
             }
- 
-            
-            
-            
+            Group{
+            Spacer()
+            }
         }
     }
 }
