@@ -17,7 +17,7 @@ Anais - Allowing user to select products and placing them into shopping cart. Du
 Jatin - Location Services (Choosing the more popular stores for ex Walmart and Food Basic) and 
         other features. 
  
-If Jatin can not be able to complete his part then Anais will have to do it for him.
+If Jatin can not be able to complete his part then Anais may have to do it for him.
  
 Tyoe of nagivation : Hirarchal navigation but the app won't annoy user when during navigation
 
