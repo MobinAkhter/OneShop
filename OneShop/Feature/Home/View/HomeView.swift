@@ -12,11 +12,13 @@ struct HomeView: View {
     @EnvironmentObject var sessionService: SessionServiceImpl // Next thing todo after adding this: set it in the previews
     
     @State private var navigationTag: Int? = nil
+    @State private var shoppingCartTag: Int? = nil
     var body: some View {
         NavigationView{
         VStack(alignment: .leading, spacing: 16) {
         VStack(alignment: .leading, spacing: 16) {
             NavigationLink(destination: ProductSelection(), tag: 1, selection: $navigationTag  ){}
+            
             
             
             Text("First Name: \(sessionService.userDetails?.firstName ?? "N/A")")
@@ -32,6 +34,8 @@ struct HomeView: View {
                 }){
                     Text("Click To View Products")
                 }
+                
+                
             }
             ButtonView(title: "Logout") {
                 // Handle logout action here
