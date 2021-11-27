@@ -12,11 +12,16 @@ struct ProductSelection: View {
    
     @State private var selected: Int = 1
     @State private var productList = [Product]()
-    
+    @State private var addProducts = [Product]()
+    @State private var cartTag : Int? = nil
     
     var body: some View {
+        NavigationView{
         
         VStack{
+         
+            NavigationLink(destination: ShoppingCart(theList: addProducts), tag: 1, selection: $cartTag){}
+        
             Text("Categories")
                 .font(.title2)
             List{
@@ -26,6 +31,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "Electronics"){
                            CustomRowView(product: currentItem)
                                 .onTapGesture{
+                                    getProducts(productName: currentItem.productName, category: currentItem.category)
                                     print("Selected \(currentItem.productName)")
                                 }
                         }
@@ -38,6 +44,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "Food & Drinks"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                         }
@@ -50,6 +57,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "Health"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                         }
@@ -62,6 +70,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "Human Attire"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                         }
@@ -74,6 +83,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "Entertainment"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                             
@@ -87,6 +97,7 @@ struct ProductSelection: View {
                         if(currentItem.category == "School Supplies"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                         }
@@ -99,20 +110,35 @@ struct ProductSelection: View {
                         if(currentItem.category == "Household Items"){
                             CustomRowView(product: currentItem)
                                  .onTapGesture{
+                                     getProducts(productName: currentItem.productName, category: currentItem.category)
                                      print("Selected \(currentItem.productName)")
                                  }
                         }
                     }
                 }//section 7
-                
-            
-                
-                
             }
+          }
         }
         .onAppear(){
             self.loadProducts()
         }
+        
+        .toolbar{
+            Button(action: {
+                self.cartTag = 1
+            }){
+                Text("View Shopping Cart")
+            }
+        }
+        
+    }
+    
+    private func getProducts(productName: String, category: String){
+      let product = Product(productName: productName, category: category)
+        
+        self.addProducts.append(product)
+        print(self.addProducts.count)
+       
     }
     
     private func loadProducts(){

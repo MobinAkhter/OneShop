@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Product: Hashable{
+struct Product: Identifiable, Hashable{
     var id = UUID()
     var productName : String = ""
     var category : String = ""
