@@ -18,6 +18,7 @@ struct MapView: View {
             
             if(self.locationHelper.currentLocation != nil){
                 
+                MyMap(location: self.locationHelper.currentLocation!)
                 
             }else{
                 Text("Obtaining user location")
