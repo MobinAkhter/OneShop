@@ -13,6 +13,8 @@ struct ForwardGeoView: View {
     @State private var city : String = ""
     @State private var country: String = ""
     @State private var result : String = ""
+    @State private var lat : Double = 0.0
+    @State private var lng : Double = 0.0
     @ObservedObject var locationHelper = LocationHelper()
     @State private var obtainedCoordinates: CLLocation?
     
@@ -61,7 +63,8 @@ struct ForwardGeoView: View {
                 
                 self.result = "The latititude is \(coordinates!.coordinate.latitude) \n The longitude is : \(coordinates!.coordinate.longitude)"
                 
-                
+                self.lat = self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
+                self.lng = self.obtainedCoordinates?.coordinate.longitude ?? -45.3432
             }else{
                 self.result = "Unable to get the coordinates for given address"
             }
