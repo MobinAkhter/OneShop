@@ -16,10 +16,12 @@ struct ForwardGeoView: View {
     @State private var lat : Double = 0.0
     @State private var lng : Double = 0.0
     @ObservedObject var locationHelper = LocationHelper()
+    @State private var mapViewTag: Int? = nil
     @State private var obtainedCoordinates: CLLocation?
     
     var body: some View {
         VStack{
+            NavigationLink(destination: MapView(), tag: 1, selection: $mapViewTag  ){}
             Text("Enter Your Coordinates")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
@@ -46,6 +48,14 @@ struct ForwardGeoView: View {
                 let address = "\(self.street), \(self.city), \(self.country)"
             }){
                 Text("Enter")
+            }
+            
+            Button(action:{
+                self.mapViewTag = 1
+                print("Value is \(self.$mapViewTag)")
+             
+            }){
+                Text("Click Here To View Map")
             }
             
             Spacer()

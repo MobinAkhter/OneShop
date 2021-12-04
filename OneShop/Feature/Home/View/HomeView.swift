@@ -13,11 +13,14 @@ struct HomeView: View {
     
     @State private var navigationTag: Int? = nil
     @State private var shoppingCartTag: Int? = nil
+    @State private var geoViewTag: Int? = nil
     var body: some View {
         NavigationView{
         VStack(alignment: .leading, spacing: 16) {
         VStack(alignment: .leading, spacing: 16) {
             NavigationLink(destination: ProductSelection(), tag: 1, selection: $navigationTag  ){}
+            
+            NavigationLink(destination: ForwardGeoView(), tag: 1, selection: $geoViewTag  ){}
             
             
             
@@ -33,6 +36,14 @@ struct HomeView: View {
                  
                 }){
                     Text("Click To View Products")
+                }
+                
+                Button(action:{
+                    self.geoViewTag = 1
+                    print("Value is \(self.$geoViewTag)")
+                 
+                }){
+                    Text("Click Here To Enter Your Coordinates")
                 }
                 
                 
