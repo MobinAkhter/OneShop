@@ -28,6 +28,7 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
         }
         
         checkPermission()
+        self.requestPermission()
         
         if(CLLocationManager.locationServicesEnabled() && (self.authorizationStatus == .authorizedAlways || self.authorizationStatus == .authorizedWhenInUse)){
             self.locationManager.startUpdatingLocation()

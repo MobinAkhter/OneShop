@@ -11,6 +11,7 @@ import MapKit
 struct MapView: View {
     
     @ObservedObject var locationHelper = LocationHelper()
+   
     
     var body: some View {
         VStack{
@@ -28,6 +29,8 @@ struct MapView: View {
             self.locationHelper.checkPermission()
         }
     }
+    
+    
 }
 
 struct MapView_Previews: PreviewProvider {
@@ -39,6 +42,9 @@ struct MapView_Previews: PreviewProvider {
 struct MyMap: UIViewRepresentable{
 
     private var location: CLLocation
+    
+    @State private var theLat : Double = 0.0
+    @State private var theLng : Double = 0.0
     @ObservedObject var locationHelper = LocationHelper()
     let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
     
@@ -72,8 +78,15 @@ struct MyMap: UIViewRepresentable{
         
     }
     
+    
+    func getCoors(lat: Double, lng : Double){
+        self.theLat = lat
+        self.theLng = lng
+    }
+    
     func updateUIView(_ uiView: MKMapView, context: Context) {
         //update map to show current location
+        
         
         let sourceCoordinates : CLLocationCoordinate2D
         let region : MKCoordinateRegion
@@ -81,7 +94,7 @@ struct MyMap: UIViewRepresentable{
         if(self.locationHelper.currentLocation != nil){
             sourceCoordinates = self.locationHelper.currentLocation!.coordinate
         }else{
-            sourceCoordinates = CLLocationCoordinate2D(latitude: 43.642567, longitude: -79.387024)
+            sourceCoordinates = CLLocationCoordinate2D(latitude: 53.2334, longitude: -79.3233)
         }
         
         region = MKCoordinateRegion(center: sourceCoordinates, span: span)

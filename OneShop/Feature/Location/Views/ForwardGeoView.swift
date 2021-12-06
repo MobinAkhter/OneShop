@@ -18,6 +18,7 @@ struct ForwardGeoView: View {
     @ObservedObject var locationHelper = LocationHelper()
     @State private var mapViewTag: Int? = nil
     @State private var obtainedCoordinates: CLLocation?
+     
     
     var body: some View {
         VStack{
@@ -46,6 +47,7 @@ struct ForwardGeoView: View {
             
             Button(action: {
                 let address = "\(self.street), \(self.city), \(self.country)"
+                self.performGeocoding(address: address)
             }){
                 Text("Enter")
             }
@@ -75,6 +77,8 @@ struct ForwardGeoView: View {
                 
                 self.lat = self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
                 self.lng = self.obtainedCoordinates?.coordinate.longitude ?? -45.3432
+           //     let mapView = MyMap(location: (self.obtainedCoordinates)!)
+            //    mapView.getCoors(lat: self.lat, lng: self.lng)
             }else{
                 self.result = "Unable to get the coordinates for given address"
             }
