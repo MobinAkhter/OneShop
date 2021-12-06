@@ -75,6 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8411097A275DE7F000CECABA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		B34B7CB427398CFD00498AE7 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +150,7 @@
 		B34B7CD327398D6500498AE7 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				8411097A275DE7F000CECABA /* Products */,
 				B34B7D1D2739994000498AE7 /* Login */,
 				B34B7D0B2739984600498AE7 /* Register */,
 				B34B7D052739980400498AE7 /* Home */,
