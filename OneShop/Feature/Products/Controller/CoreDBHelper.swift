@@ -33,6 +33,7 @@ class CoreDBHelper : ObservableObject{
             productTobeInserted.id = UUID()
             productTobeInserted.productName = newProduct.productName
             productTobeInserted.category = newProduct.category
+            productTobeInserted.price = newProduct.price
             productTobeInserted.dateAdded = Date()
 
             
