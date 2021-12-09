@@ -54,7 +54,7 @@ struct HomeView: View {
             }
         }
         .padding(.horizontal, 16)
-        .navigationTitle("Main ContentView")
+        .navigationTitle("OneShop")
     }
     }
 }
