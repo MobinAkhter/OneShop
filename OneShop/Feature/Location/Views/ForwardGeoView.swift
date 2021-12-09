@@ -24,7 +24,7 @@ struct ForwardGeoView: View {
         VStack{
             NavigationLink(destination: MapView(locationHelper: locationHelper, theLat: self.lat, theLng: self.lng),tag: 1, selection: $mapViewTag  ){}
             Text("Enter Your Coordinates")
-                .foregroundColor(.pink)
+                .foregroundColor(.orange)
                 .fontWeight(.bold)
                 .font(.system(size: 30))
                 .padding()
