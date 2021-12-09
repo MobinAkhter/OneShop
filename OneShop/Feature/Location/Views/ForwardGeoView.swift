@@ -24,7 +24,7 @@ struct ForwardGeoView: View {
         VStack{
             NavigationLink(destination: MapView(locationHelper: locationHelper, theLat: self.lat, theLng: self.lng),tag: 1, selection: $mapViewTag  ){}
             Text("Enter Your Coordinates")
-                .foregroundColor(.red)
+                .foregroundColor(.pink)
                 .fontWeight(.bold)
                 .font(.system(size: 30))
                 .padding()
@@ -40,7 +40,7 @@ struct ForwardGeoView: View {
             Text("\(self.result)")
                 .foregroundColor(.blue)
                 .fontWeight(.bold)
-                .font(.system(size: 30))
+                .font(.system(size: 25))
                 .padding()
             
             Text("Enter these coordinates to your phone")
@@ -51,6 +51,10 @@ struct ForwardGeoView: View {
             }){
                 Text("Enter")
             }
+            .padding(10)
+            .background(Color.purple)
+            .foregroundColor(.white)
+            .font(.title2)
             
             Button(action:{
                 self.mapViewTag = 1
@@ -59,6 +63,10 @@ struct ForwardGeoView: View {
             }){
                 Text("Click Here To View Map")
             }
+            .padding(10)
+            .background(Color.white)
+            .foregroundColor(.red)
+            .font(.title2)
             
             Spacer()
 
@@ -75,9 +83,13 @@ struct ForwardGeoView: View {
                 
                 self.result = "The latititude is \(coordinates!.coordinate.latitude) \n The longitude is : \(coordinates!.coordinate.longitude)"
                 
-                self.lat = self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
+                self.lat =  self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
+                
                 self.lng = self.obtainedCoordinates?.coordinate.longitude ?? -45.3432
+                locationHelper.checkPermission()
                 let mapView = MyMap(location: (self.obtainedCoordinates)!)
+           //     locationHelper.currentLocation?.coordinate.latitude =
+             //     locationHelper.currentLocation?.coordinate.longitude = self.lng
                 mapView.getCoors(lat: self.lat, lng: self.lng)
             }else{
                 self.result = "Unable to get the coordinates for given address"
