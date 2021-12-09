@@ -36,7 +36,10 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
+                                
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -44,7 +47,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -67,7 +70,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -75,7 +79,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -98,7 +102,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -106,7 +111,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -129,7 +134,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -137,7 +143,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -160,7 +166,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -168,7 +175,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -191,7 +198,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -199,7 +207,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -222,7 +230,8 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                    
+                                Text("\(currentItem.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -230,7 +239,7 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
                             print("Selected \(currentItem.productName)")
                             self.activate = true
                         }
@@ -263,10 +272,10 @@ struct ProductSelection: View {
         
     }
     
-    private func getProducts(productName: String, category: String){
-      let product = Product(productName: productName, category: category)
+    private func getProducts(productName: String, category: String,price:Double){
+        let product = Product(productName: productName, category: category,price:price)
 
-       self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category))
+        self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category, price: price))
         
         self.addProducts.append(product)
         print(self.addProducts.count)
@@ -275,15 +284,15 @@ struct ProductSelection: View {
     
     private func loadProducts(){
         //declaring electronics
-        let tv = Product(productName: "Sony 43-Inch Bravia TV", category: "Electronics")
-        let phone = Product(productName: "iPhone 13", category: "Electronics")
-        let laptops = Product(productName: "MacBook Air 13-Inch", category: "Electronics")
-        let ps5 = Product(productName: "PS5", category: "Electronics")
-        let xbox = Product(productName: "Xbox Series X", category: "Electronics")
-        let ninSwitch = Product(productName: "Nintendo Switch", category: "Electronics")
-        let headphones = Product(productName: "AirPods Max", category: "Electronics")
-        let pc = Product(productName: "Razer PC", category: "Electronics")
-        let pcParts = Product(productName: "8GB Samsung RAM", category: "Electronics")
+        let tv = Product(productName: "Sony 43-Inch Bravia TV", category: "Electronics", price: 1300.00)
+        let phone = Product(productName: "iPhone 13", category: "Electronics", price: 1800.00)
+        let laptops = Product(productName: "MacBook Air 13-Inch", category: "Electronics", price: 2000.00)
+        let ps5 = Product(productName: "PS5", category: "Electronics", price: 800.99)
+        let xbox = Product(productName: "Xbox Series X", category: "Electronics", price: 600.99)
+        let ninSwitch = Product(productName: "Nintendo Switch", category: "Electronics", price: 450.99)
+        let headphones = Product(productName: "AirPods Max", category: "Electronics", price: 800.99)
+        let pc = Product(productName: "Razer PC", category: "Electronics", price: 1300.99)
+        let pcParts = Product(productName: "8GB Samsung RAM", category: "Electronics", price: 80.99)
         
         self.productList.append(tv)
         self.productList.append(phone)
@@ -296,15 +305,15 @@ struct ProductSelection: View {
         self.productList.append(pcParts)
         
         //delcaring food & drinks
-        let healthy = Product(productName: "Fuji Apple", category: "Food & Drinks")
-        let water = Product(productName: "Aquafina Water Bottle 500ML", category: "Food & Drinks")
-        let juice = Product(productName: "Tropicana Real Fruit Juice", category: "Food & Drinks")
-        let soda = Product(productName: "Club Soda", category: "Food & Drinks")
-        let fast = Product(productName: "Burger Patty", category: "Food & Drinks")
-        let candy = Product(productName: "Dairy Milk Fruit & Nut", category: "Food & Drinks")
-        let snack = Product(productName: "BBQ Chips", category: "Food & Drinks")
-        let meat = Product(productName: "Pork", category: "Food & Drinks")
-        let frozen = Product(productName: "Frozen Meat", category: "Food & Drinks")
+        let healthy = Product(productName: "Fuji Apple", category: "Food & Drinks", price: 10.00)
+        let water = Product(productName: "Aquafina Water Bottle 500ML", category: "Food & Drinks", price: 5.00)
+        let juice = Product(productName: "Tropicana Real Fruit Juice", category: "Food & Drinks", price: 2.00)
+        let soda = Product(productName: "Club Soda", category: "Food & Drinks", price: 1.00)
+        let fast = Product(productName: "Burger Patty", category: "Food & Drinks", price: 3.50)
+        let candy = Product(productName: "Dairy Milk Fruit & Nut", category: "Food & Drinks", price: 1.50)
+        let snack = Product(productName: "BBQ Chips", category: "Food & Drinks", price: 2.00)
+        let meat = Product(productName: "Pork", category: "Food & Drinks", price: 13.00)
+        let frozen = Product(productName: "Frozen Meat", category: "Food & Drinks", price: 13.99)
         
         self.productList.append(healthy)
         self.productList.append(water)
@@ -317,16 +326,16 @@ struct ProductSelection: View {
         self.productList.append(frozen)
         
         //declaring health
-        let medicine = Product(productName: "Tylenol", category: "Health")
-        let soap = Product(productName: "Dove Soap", category: "Health")
-        let shampoo = Product(productName: "Head & Shoulders Shampoo", category: "Health")
-        let ditergent = Product(productName: "Tide Detergent", category: "Health")
-        let toiletPaper = Product(productName: "Toilet Paper", category: "Health")
-        let brush = Product(productName: "Tooth Brush", category: "Health")
-        let skinCare = Product(productName: "Vaseline Hand Cream", category: "Health")
-        let shave = Product(productName: "Philips Shaving Kit", category: "Health")
-        let healthProducts = Product(productName: "Trimmer", category: "Health")
-        let toothPaste = Product(productName: "Colgate Tooth Paste", category: "Health")
+        let medicine = Product(productName: "Tylenol", category: "Health", price: 3.99)
+        let soap = Product(productName: "Dove Soap", category: "Health", price: 2.99)
+        let shampoo = Product(productName: "Head & Shoulders Shampoo", category: "Health", price: 7.99)
+        let ditergent = Product(productName: "Tide Detergent", category: "Health", price: 5.99)
+        let toiletPaper = Product(productName: "Toilet Paper", category: "Health", price: 2.99)
+        let brush = Product(productName: "Tooth Brush", category: "Health", price: 2.99)
+        let skinCare = Product(productName: "Vaseline Hand Cream", category: "Health", price: 3.99)
+        let shave = Product(productName: "Philips Shaving Kit", category: "Health", price: 25.99)
+        let healthProducts = Product(productName: "Trimmer", category: "Health", price: 10.99)
+        let toothPaste = Product(productName: "Colgate Tooth Paste", category: "Health", price: 3.99)
         
         self.productList.append(medicine)
         self.productList.append(soap)
@@ -341,16 +350,16 @@ struct ProductSelection: View {
         
         
         //declaring attire
-        let shirts = Product(productName: "Levis Shirt Size Medium", category: "Human Attire")
-        let pants = Product(productName: "Levis Pants W:32 H:30", category: "Human Attire")
-        let shoes = Product(productName: "Nike AF1", category: "Human Attire")
-        let socks = Product(productName: "Nike Socks", category: "Human Attire")
-        let makeUp = Product(productName: "Maybelline Colossal Kajal", category: "Human Attire")
-        let suits = Product(productName: "Men's Formal Suit Size: Medium", category: "Human Attire")
-        let jewellery = Product(productName: "Necklace", category: "Human Attire")
-        let jackets = Product(productName: "Levis Leather Jacket", category: "Human Attire")
-        let hats = Product(productName: "Champion Hat", category: "Human Attire")
-        let glasses = Product(productName: "Ray-Ban Sunglasses", category: "Human Attire")
+        let shirts = Product(productName: "Levis Shirt Size Medium", category: "Human Attire", price: 13.99)
+        let pants = Product(productName: "Levis Pants W:32 H:30", category: "Human Attire", price: 20.99)
+        let shoes = Product(productName: "Nike AF1", category: "Human Attire", price: 130.99)
+        let socks = Product(productName: "Nike Socks", category: "Human Attire", price: 13.99)
+        let makeUp = Product(productName: "Maybelline Colossal Kajal", category: "Human Attire", price: 5.99)
+        let suits = Product(productName: "Men's Formal Suit Size: Medium", category: "Human Attire", price: 130.99)
+        let jewellery = Product(productName: "Necklace", category: "Human Attire", price: 1300.99)
+        let jackets = Product(productName: "Levis Leather Jacket", category: "Human Attire", price: 130.99)
+        let hats = Product(productName: "Champion Hat", category: "Human Attire", price: 13.99)
+        let glasses = Product(productName: "Ray-Ban Sunglasses", category: "Human Attire", price: 200.99)
     
         self.productList.append(shirts)
         self.productList.append(pants)
@@ -364,11 +373,11 @@ struct ProductSelection: View {
         self.productList.append(glasses)
         
         //declaring entertainment
-        let movies = Product(productName: "The Founder - DVD", category: "Entertainment")
-        let games  = Product(productName: "Spiderman Miles Morales - PS5", category: "Entertainment")
-        let toys = Product(productName: "Hotwheels - Pack of 1", category: "Entertainment")
-        let sports = Product(productName: "Bike Helmet", category: "Entertainment")
-        let bike = Product(productName: "GT Bike", category: "Entertainment")
+        let movies = Product(productName: "The Founder - DVD", category: "Entertainment", price: 5.50)
+        let games  = Product(productName: "Spiderman Miles Morales - PS5", category: "Entertainment", price: 30.99)
+        let toys = Product(productName: "Hotwheels - Pack of 1", category: "Entertainment", price: 1.99)
+        let sports = Product(productName: "Bike Helmet", category: "Entertainment", price: 130.99)
+        let bike = Product(productName: "GT Bike", category: "Entertainment", price: 600.99)
     
         self.productList.append(movies)
         self.productList.append(games)
@@ -378,17 +387,17 @@ struct ProductSelection: View {
        
         
         //declaring school products
-        let books = Product(productName: "The Fault in our Stars - Hardcover", category: "School Supplies")
-        let noteBooks = Product(productName: "A4 Notebook", category: "School Supplies")
-        let bags = Product(productName: "School Bag", category: "School Supplies")
-        let pencils = Product(productName: "Pencil", category: "School Supplies")
-        let pens = Product(productName: "Pen", category: "School Supplies")
-        let erasers = Product(productName: "Eraser", category: "School Supplies")
-        let markers = Product(productName: "Marker", category: "School Supplies")
-        let crayons = Product(productName: "Crayon", category: "School Supplies")
-        let poster = Product(productName: "Poster Board", category: "School Supplies")
-        let calculator = Product(productName: "Calculator", category: "School Supplies")
-        let sharpeners = Product(productName: "Sharpener", category: "School Supplies")
+        let books = Product(productName: "The Fault in our Stars - Hardcover", category: "School Supplies", price: 13.99)
+        let noteBooks = Product(productName: "A4 Notebook", category: "School Supplies", price: 5.99)
+        let bags = Product(productName: "School Bag", category: "School Supplies", price: 15.99)
+        let pencils = Product(productName: "Pencil", category: "School Supplies", price: 1.99)
+        let pens = Product(productName: "Pen", category: "School Supplies", price: 1.99)
+        let erasers = Product(productName: "Eraser", category: "School Supplies", price: 0.99)
+        let markers = Product(productName: "Marker", category: "School Supplies", price: 1.99)
+        let crayons = Product(productName: "Crayon", category: "School Supplies", price: 0.99)
+        let poster = Product(productName: "Poster Board", category: "School Supplies", price: 5.99)
+        let calculator = Product(productName: "Calculator", category: "School Supplies", price: 13.99)
+        let sharpeners = Product(productName: "Sharpener", category: "School Supplies", price: 1.99)
         
         self.productList.append(books)
         self.productList.append(noteBooks)
@@ -403,11 +412,11 @@ struct ProductSelection: View {
         self.productList.append(sharpeners)
         
         //delcaring household items
-        let furniture = Product(productName: "Study Table", category: "Household Items")
-        let plants = Product(productName: "Money Plant", category: "Household Items")
-        let kitchen = Product(productName: "Silverware", category: "Household Items")
-        let towels = Product(productName: "Hand Towel", category: "Household Items")
-        let beds = Product(productName: "Bed Frame - White", category: "Household Items")
+        let furniture = Product(productName: "Study Table", category: "Household Items", price: 100.99)
+        let plants = Product(productName: "Money Plant", category: "Household Items", price: 15.99)
+        let kitchen = Product(productName: "Silverware", category: "Household Items", price: 5.99)
+        let towels = Product(productName: "Hand Towel", category: "Household Items", price: 1.99)
+        let beds = Product(productName: "Bed Frame - White", category: "Household Items", price: 500.99)
     
         self.productList.append(furniture)
         self.productList.append(plants)

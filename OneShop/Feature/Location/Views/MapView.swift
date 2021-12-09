@@ -62,6 +62,8 @@ struct MyMap: UIViewRepresentable{
     func getCoors(lat : Double, lng: Double){
         self.theLat = lat
         self.theLng = lng
+      //  locationHelper.currentLocation?.coordinate.latitude = self.theLat ??  34.2323
+      //  locationHelper.currentLocation?.coordinate.longitude = self.theLng ?? -45.3432
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -95,11 +97,13 @@ struct MyMap: UIViewRepresentable{
         //update map to show current location
         
         
-        let sourceCoordinates : CLLocationCoordinate2D
+        var sourceCoordinates : CLLocationCoordinate2D
         let region : MKCoordinateRegion
         
         if(self.locationHelper.currentLocation != nil){
             sourceCoordinates = self.locationHelper.currentLocation!.coordinate
+            sourceCoordinates.latitude = Double(self.theLat ?? 43.2323)
+            sourceCoordinates.longitude = Double(self.theLng ?? -73.54545 )
         }else{
             sourceCoordinates = CLLocationCoordinate2D(latitude: self.theLat ?? 43.2323, longitude: self.theLng ?? -73.54545)
         }
