@@ -14,7 +14,7 @@ import FirebaseDatabase
 enum RegistrationKeys: String {
     case firstName
     case lastName
-    case occupation
+//    case occupation
 }
 
 // Code reference: Firebase Auth docs
@@ -38,9 +38,8 @@ final class RegistrationServiceImpl: RegistrationService {
                                 
                                 // let values is a dictionary with values that we can actually store in firebase
                                 let values = [RegistrationKeys.firstName.rawValue: details.firstName,
-                                              RegistrationKeys.lastName.rawValue: details.lastName,
-                                RegistrationKeys.occupation.rawValue: details.occupation] as [String: Any]
-                            
+                                              RegistrationKeys.lastName.rawValue: details.lastName] as [String: Any]
+                            // TOOK OUT OCCUPATION
                                 // Firebase database function to update our user with the above values
                                 Database.database() // access
                                     .reference() // references database
