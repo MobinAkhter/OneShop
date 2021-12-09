@@ -19,6 +19,7 @@ struct InputTextFieldView: View {
     var body: some View {
         // Code responsible for Email TextField
         TextField(placeholder, text: $text)
+            .autocapitalization(.none)
             .frame(maxWidth: .infinity,
                    minHeight: 44)
             .padding(.leading, sfSymbol == nil ? textFieldLeading / 2 : textFieldLeading)
