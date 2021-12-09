@@ -25,7 +25,7 @@ struct HomeView: View {
             
 //            Text("First Name: \(sessionService.userDetails?.firstName ?? "N/A")")
 //            Text("Last Name: \(sessionService.userDetails?.lastName ?? "N/A")")
-//            Text("Occupation: \(sessionService.userDetails?.occupation ?? "N/A")")
+
         }
             Group{
                 Image("grocery")

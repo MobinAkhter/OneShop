@@ -62,7 +62,7 @@ private extension SessionServiceImpl {
                       let value = snapshot.value as? NSDictionary,
                       let firstName = value[RegistrationKeys.firstName.rawValue] as? String,
                       let lastName = value[RegistrationKeys.lastName.rawValue] as? String
-                      //let occupation = value[RegistrationKeys.occupation.rawValue] as? String
+
                 else {
                     return
                 }

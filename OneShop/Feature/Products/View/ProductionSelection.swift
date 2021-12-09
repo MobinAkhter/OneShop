@@ -43,7 +43,7 @@ struct ProductSelection: View {
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
-
+                                
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
