@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8411097F275DE98000CECABA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411097E275DE98000CECABA /* Product.swift */; };
-		84110981275DE9A200CECABA /* ProductHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84110980275DE9A200CECABA /* ProductHelper.swift */; };
 		84110983275DE9D000CECABA /* ProductionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84110982275DE9D000CECABA /* ProductionSelection.swift */; };
 		84110985275DE9F400CECABA /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84110984275DE9F400CECABA /* ShoppingCart.swift */; };
 		8411098A275DEA6500CECABA /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84110989275DEA6500CECABA /* LocationHelper.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		8411097E275DE98000CECABA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		84110980275DE9A200CECABA /* ProductHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHelper.swift; sourceTree = "<group>"; };
 		84110982275DE9D000CECABA /* ProductionSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionSelection.swift; sourceTree = "<group>"; };
 		84110984275DE9F400CECABA /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		84110989275DEA6500CECABA /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		8411097B275DE90500CECABA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84110980275DE9A200CECABA /* ProductHelper.swift */,
 				E42D9BD2276230980031D4B5 /* Persistence.swift */,
 				E42D9BD4276230E40031D4B5 /* CoreDBHelper.swift */,
 			);
@@ -500,7 +497,6 @@
 				B34B7CC127398CFD00498AE7 /* OneShopApp.swift in Sources */,
 				B34B7D03273997CC00498AE7 /* ForgotPasswordViewModel.swift in Sources */,
 				84110983275DE9D000CECABA /* ProductionSelection.swift in Sources */,
-				84110981275DE9A200CECABA /* ProductHelper.swift in Sources */,
 				E42D9BD3276230980031D4B5 /* Persistence.swift in Sources */,
 				B34B7D1B2739990300498AE7 /* RegistrationViewModel.swift in Sources */,
 				8411098F275DEAAF00CECABA /* MapView.swift in Sources */,

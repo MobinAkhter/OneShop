@@ -2,7 +2,7 @@
 //  ShoppingCart.swift
 //  OneShop
 //
-//  Created by Anais Zulfequar on 2021-11-27.
+//  Created by Jatin Sharma on 2021-12-09.
 //
 
 import SwiftUI
