@@ -16,11 +16,13 @@ struct ProductSelection: View {
     @State private var addProducts = [Product]()
     @State private var cartTag : Int? = nil
     @EnvironmentObject var coreDBHelper: CoreDBHelper
+    @State private var alertMessage = ""
+    @State private var activate: Bool = false
     
     var body: some View {
         NavigationView{
         
-        VStack{
+        ZStack{
          
             NavigationLink(destination: ShoppingCart(theList: addProducts), tag: 1, selection: $cartTag){}
         
@@ -28,14 +30,33 @@ struct ProductSelection: View {
                 .font(.title2)
             List{
                 Section(header: Text("Electonics")){
+                    
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Electronics"){
-                           CustomRowView(product: currentItem)
-                                .onTapGesture{
-                                    getProducts(productName: currentItem.productName, category: currentItem.category)
-                                    print("Selected \(currentItem.productName)")
-                                }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 1
