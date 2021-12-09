@@ -15,6 +15,7 @@ enum RegistrationKeys: String {
     case firstName
     case lastName
     case occupation
+    case email
 }
 
 // Code reference: Firebase Auth docs
@@ -24,6 +25,7 @@ protocol RegistrationService{
 }
 
 final class RegistrationServiceImpl: RegistrationService {
+    
     func register(with details: RegistrationDetails) -> AnyPublisher<Void, Error> {
         Deferred {
             Future{ promise in
@@ -39,6 +41,7 @@ final class RegistrationServiceImpl: RegistrationService {
                                 // let values is a dictionary with values that we can actually store in firebase
                                 let values = [RegistrationKeys.firstName.rawValue: details.firstName,
                                               RegistrationKeys.lastName.rawValue: details.lastName,
+                                              RegistrationKeys.email.rawValue: details.email,
                                 RegistrationKeys.occupation.rawValue: details.occupation] as [String: Any]
                             
                                 // Firebase database function to update our user with the above values

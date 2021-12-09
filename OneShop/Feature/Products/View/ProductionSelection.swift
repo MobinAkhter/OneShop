@@ -18,6 +18,8 @@ struct ProductSelection: View {
     @EnvironmentObject var coreDBHelper: CoreDBHelper
     @State private var alertMessage = ""
     @State private var activate: Bool = false
+    @EnvironmentObject var sessionService: SessionServiceImpl 
+
     
     var body: some View {
         NavigationView{
@@ -283,6 +285,10 @@ struct ProductSelection: View {
     }
     
     private func loadProducts(){
+        
+        print("**************")
+                print("IUrgent:\(sessionService.userDetails?.email)")
+                print("**************")
         //declaring electronics
         let tv = Product(productName: "Sony 43-Inch Bravia TV", category: "Electronics", price: 1300.00)
         let phone = Product(productName: "iPhone 13", category: "Electronics", price: 1800.00)
@@ -303,6 +309,8 @@ struct ProductSelection: View {
         self.productList.append(headphones)
         self.productList.append(pc)
         self.productList.append(pcParts)
+        
+        
         
         //delcaring food & drinks
         let healthy = Product(productName: "Fuji Apple", category: "Food & Drinks", price: 10.00)
