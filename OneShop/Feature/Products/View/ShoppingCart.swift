@@ -14,7 +14,11 @@ struct ShoppingCart: View {
     @State var list = [Product]()
     @State var total : Double = 0.0
     var body: some View {
-      
+        Text(" Your Shopping Cart")
+            .foregroundColor(.blue)
+            .fontWeight(.bold)
+            .font(.system(size: 30))
+            .padding()
         ZStack{
   
             if (self.coreDBHelper.productList.count > 0){
