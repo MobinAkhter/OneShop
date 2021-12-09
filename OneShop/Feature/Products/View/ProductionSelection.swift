@@ -276,8 +276,10 @@ struct ProductSelection: View {
     
     private func getProducts(productName: String, category: String,price:Double){
         let product = Product(productName: productName, category: category,price:price)
-
-        self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category, price: price))
+        var emailId = sessionService.userDetails?.email
+        let removeCharacters: Set<Character> = ["(", ")","O","p","t","i","o","n","a","l"]
+        emailId?.removeAll(where: { removeCharacters.contains($0) } )
+        self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category, price: price,email:emailId ?? ""))
         
         self.addProducts.append(product)
         print(self.addProducts.count)

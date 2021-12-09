@@ -13,14 +13,18 @@ struct ShoppingCart: View {
     @EnvironmentObject var coreDBHelper : CoreDBHelper
     @State var list = [Product]()
     @State var total : Double = 0.0
+    @EnvironmentObject var sessionService: SessionServiceImpl
+    @State var emailId : String = ""
+
     var body: some View {
       
         ZStack{
   
             if (self.coreDBHelper.productList.count > 0){
+               
                 List{
                     ForEach (self.coreDBHelper.productList.enumerated().map({$0}), id: \.element.self){ indx, currentReservation in
-        
+                        if(currentReservation.email == emailId){
                             VStack(alignment: .leading){
                                 Text("Name: \(currentReservation.productName)")
                                     .fontWeight(.bold)
@@ -29,7 +33,7 @@ struct ShoppingCart: View {
                                     .fontWeight(.bold)
 
                             }.padding(20)
-                        
+                    }
                     }//ForEach
                     .onDelete(perform: {indexSet in
                         
@@ -55,6 +59,9 @@ struct ShoppingCart: View {
        
         }
         .onAppear(){
+           emailId = sessionService.userDetails?.email ?? ""
+            let removeCharacters: Set<Character> = ["(", ")","O","p","t","i","o","n","a","l"]
+            emailId.removeAll(where: { removeCharacters.contains($0) } )
             self.coreDBHelper.getAllProducts()
             for word in self.coreDBHelper.productList{
                 

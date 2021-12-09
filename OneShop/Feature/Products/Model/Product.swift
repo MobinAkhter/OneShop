@@ -13,6 +13,7 @@ struct Product: Identifiable, Hashable{
     var productName : String = ""
     var category : String = ""
     var price : Double = 0.0
+
     
     init(){
         
@@ -22,6 +23,7 @@ struct Product: Identifiable, Hashable{
         self.productName = productName
         self.category = category
         self.price = price
+      
     }
     
    

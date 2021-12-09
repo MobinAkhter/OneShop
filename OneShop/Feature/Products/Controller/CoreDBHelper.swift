@@ -34,6 +34,7 @@ class CoreDBHelper : ObservableObject{
             productTobeInserted.productName = newProduct.productName
             productTobeInserted.category = newProduct.category
             productTobeInserted.price = newProduct.price
+            productTobeInserted.email = newProduct.email
             productTobeInserted.dateAdded = Date()
 
             
