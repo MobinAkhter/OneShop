@@ -14,23 +14,27 @@ struct ShoppingCart: View {
     @State var list = [Product]()
     @State var total : Double = 0.0
     var body: some View {
+        
         Text(" Your Shopping Cart")
-            .foregroundColor(.blue)
+            .foregroundColor(.green)
             .fontWeight(.bold)
             .font(.system(size: 30))
             .padding()
         ZStack{
-  
+            
             if (self.coreDBHelper.productList.count > 0){
                 List{
                     ForEach (self.coreDBHelper.productList.enumerated().map({$0}), id: \.element.self){ indx, currentReservation in
         
                             VStack(alignment: .leading){
-                                Text("Name: \(currentReservation.productName)")
+                                Text("\(currentReservation.productName)")
                                     .fontWeight(.bold)
+                                    .foregroundColor(.blue)
+                                    
                                 
-                                Text("Price: \(currentReservation.price, specifier: "%.2f")")
+                                Text("Price: $\(currentReservation.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
+                                    .foregroundColor(.red)
 
                             }.padding(20)
                         
@@ -50,6 +54,7 @@ struct ShoppingCart: View {
                     })
                     VStack{
                         Text("Total: $\(self.total, specifier: "%.2f")")
+                            .foregroundColor(.black)
                         .fontWeight(.bold)}
 
                 }
@@ -64,10 +69,12 @@ struct ShoppingCart: View {
                 
                 total+=word.price
             }
+          
         }
         .onDisappear{
         }
     }
+      
     
 
 }

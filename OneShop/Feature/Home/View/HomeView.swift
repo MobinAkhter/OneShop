@@ -22,6 +22,7 @@ struct HomeView: View {
             NavigationLink(destination: ProductSelection(), tag: 1, selection: $navigationTag  ){}
             
             NavigationLink(destination: ForwardGeoView(), tag: 1, selection: $geoViewTag  ){}
+            NavigationLink(destination: ShoppingCart(), tag: 1, selection: $shoppingCartTag  ){}
             
 //            Text("First Name: \(sessionService.userDetails?.firstName ?? "N/A")")
 //            Text("Last Name: \(sessionService.userDetails?.lastName ?? "N/A")")
@@ -40,16 +41,40 @@ struct HomeView: View {
                     print("Value is \(self.$navigationTag)")
                  
                 }){
-                    Text("Click To View Products")
+                    Text("View Products")
                 }
+                .padding(10)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .font(.title3)
+                .cornerRadius(10)
+                
+                Button(action:{
+                    self.shoppingCartTag = 1
+                    print("Value is \(self.$shoppingCartTag)")
+                 
+                }){
+                    Text("View Shopping Cart")
+                }
+                .padding(10)
+                .background(Color.green)
+                .foregroundColor(.white)
+                .font(.title3)
+                .cornerRadius(10)
+                
                 
                 Button(action:{
                     self.geoViewTag = 1
                     print("Value is \(self.$geoViewTag)")
                  
                 }){
-                    Text("Click Here To Enter Your Coordinates")
+                    Text("Enter Your Location Coordinates")
                 }
+                .padding(10)
+                .background(Color.purple)
+                .foregroundColor(.white)
+                .font(.title3)
+                .cornerRadius(10)
                 
                 
             }
