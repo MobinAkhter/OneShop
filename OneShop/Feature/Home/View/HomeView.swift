@@ -22,11 +22,9 @@ struct HomeView: View {
             
             NavigationLink(destination: ForwardGeoView(), tag: 1, selection: $geoViewTag  ){}
             
-            
-            
-            Text("First Name: \(sessionService.userDetails?.firstName ?? "N/A")")
-            Text("Last Name: \(sessionService.userDetails?.lastName ?? "N/A")")
-            Text("Occupation: \(sessionService.userDetails?.occupation ?? "N/A")")
+//            Text("First Name: \(sessionService.userDetails?.firstName ?? "N/A")")
+//            Text("Last Name: \(sessionService.userDetails?.lastName ?? "N/A")")
+//            Text("Occupation: \(sessionService.userDetails?.occupation ?? "N/A")")
         }
             Group{
                 //button to navigate to the Product Selection view
