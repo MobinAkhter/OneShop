@@ -63,79 +63,186 @@ struct ProductSelection: View {
                 
                 Section(header: Text("Food & Drinks")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Food & Drinks"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 2
                 
                 Section(header: Text("Health")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Health"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 3
                 
                 Section(header: Text("Human Attire")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Human Attire"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 4
                 
                 Section(header: Text("Entertainment")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Entertainment"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
-                            
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 5
                 
                 Section(header: Text("School Supplies")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "School Supplies"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 6
                 
                 Section(header: Text("Household Items")){
                     ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        
                         if(currentItem.category == "Household Items"){
-                            CustomRowView(product: currentItem)
-                                 .onTapGesture{
-                                     getProducts(productName: currentItem.productName, category: currentItem.category)
-                                     print("Selected \(currentItem.productName)")
-                                 }
+                            VStack(alignment: .leading){
+                                Text("\(currentItem.productName)")
+                                    .fontWeight(.bold)
+                                    
+                                Text("Tap to Add to Cart")
+                                    .font(.callout)
+                                    .italic()
+
+                                Spacer()
+                            }.padding(20)
+                        .onTapGesture{
+                            getProducts(productName: currentItem.productName, category: currentItem.category)
+                            print("Selected \(currentItem.productName)")
+                            self.activate = true
+                        }
+                            .alert(isPresented: self.$activate){
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Product Added to Cart!"),
+                                dismissButton: .default(Text("Done"))
+                            )
+                        }//alert
+                        
+                        
                         }
                     }
                 }//section 7
@@ -168,15 +275,15 @@ struct ProductSelection: View {
     
     private func loadProducts(){
         //declaring electronics
-        let tv = Product(productName: "TV", category: "Electronics")
-        let phone = Product(productName: "Phones", category: "Electronics")
-        let laptops = Product(productName: "Laptops", category: "Electronics")
+        let tv = Product(productName: "Sony 43-Inch Bravia TV", category: "Electronics")
+        let phone = Product(productName: "iPhone 13", category: "Electronics")
+        let laptops = Product(productName: "MacBook Air 13-Inch", category: "Electronics")
         let ps5 = Product(productName: "PS5", category: "Electronics")
         let xbox = Product(productName: "Xbox Series X", category: "Electronics")
         let ninSwitch = Product(productName: "Nintendo Switch", category: "Electronics")
-        let headphones = Product(productName: "Head Phones", category: "Electronics")
-        let pc = Product(productName: "PCs", category: "Electronics")
-        let pcParts = Product(productName: "Computer Parts", category: "Electronics")
+        let headphones = Product(productName: "AirPods Max", category: "Electronics")
+        let pc = Product(productName: "Razer PC", category: "Electronics")
+        let pcParts = Product(productName: "8GB Samsung RAM", category: "Electronics")
         
         self.productList.append(tv)
         self.productList.append(phone)
@@ -189,15 +296,15 @@ struct ProductSelection: View {
         self.productList.append(pcParts)
         
         //delcaring food & drinks
-        let healthy = Product(productName: "Fruits & Vegetbales", category: "Food & Drinks")
-        let water = Product(productName: "Water", category: "Food & Drinks")
-        let juice = Product(productName: "Juice", category: "Food & Drinks")
-        let soda = Product(productName: "Soda", category: "Food & Drinks")
-        let fast = Product(productName: "Fast Food", category: "Food & Drinks")
-        let candy = Product(productName: "Candy & Chocolate", category: "Food & Drinks")
-        let snack = Product(productName: "Snacks", category: "Food & Drinks")
-        let meat = Product(productName: "Meat", category: "Food & Drinks")
-        let frozen = Product(productName: "Frozen Food", category: "Food & Drinks")
+        let healthy = Product(productName: "Fuji Apple", category: "Food & Drinks")
+        let water = Product(productName: "Aquafina Water Bottle 500ML", category: "Food & Drinks")
+        let juice = Product(productName: "Tropicana Real Fruit Juice", category: "Food & Drinks")
+        let soda = Product(productName: "Club Soda", category: "Food & Drinks")
+        let fast = Product(productName: "Burger Patty", category: "Food & Drinks")
+        let candy = Product(productName: "Dairy Milk Fruit & Nut", category: "Food & Drinks")
+        let snack = Product(productName: "BBQ Chips", category: "Food & Drinks")
+        let meat = Product(productName: "Pork", category: "Food & Drinks")
+        let frozen = Product(productName: "Frozen Meat", category: "Food & Drinks")
         
         self.productList.append(healthy)
         self.productList.append(water)
@@ -210,16 +317,16 @@ struct ProductSelection: View {
         self.productList.append(frozen)
         
         //declaring health
-        let medicine = Product(productName: "Medicine", category: "Health")
-        let soap = Product(productName: "Soap", category: "Health")
-        let shampoo = Product(productName: "Shampoo", category: "Health")
-        let ditergent = Product(productName: "Ditergent", category: "Health")
+        let medicine = Product(productName: "Tylenol", category: "Health")
+        let soap = Product(productName: "Dove Soap", category: "Health")
+        let shampoo = Product(productName: "Head & Shoulders Shampoo", category: "Health")
+        let ditergent = Product(productName: "Tide Detergent", category: "Health")
         let toiletPaper = Product(productName: "Toilet Paper", category: "Health")
         let brush = Product(productName: "Tooth Brush", category: "Health")
-        let skinCare = Product(productName: "Skin Care Products", category: "Health")
-        let shave = Product(productName: "Shaving Kit", category: "Health")
-        let healthProducts = Product(productName: "Health Products", category: "Health")
-        let toothPaste = Product(productName: "Tooth Paste", category: "Health")
+        let skinCare = Product(productName: "Vaseline Hand Cream", category: "Health")
+        let shave = Product(productName: "Philips Shaving Kit", category: "Health")
+        let healthProducts = Product(productName: "Trimmer", category: "Health")
+        let toothPaste = Product(productName: "Colgate Tooth Paste", category: "Health")
         
         self.productList.append(medicine)
         self.productList.append(soap)
@@ -234,16 +341,16 @@ struct ProductSelection: View {
         
         
         //declaring attire
-        let shirts = Product(productName: "Shirts", category: "Human Attire")
-        let pants = Product(productName: "Pants", category: "Human Attire")
-        let shoes = Product(productName: "Shoes", category: "Human Attire")
-        let socks = Product(productName: "Socks", category: "Human Attire")
-        let makeUp = Product(productName: "Make Up Gear", category: "Human Attire")
-        let suits = Product(productName: "Suits", category: "Human Attire")
-        let jewellery = Product(productName: "Jewellery", category: "Human Attire")
-        let jackets = Product(productName: "Jackets", category: "Human Attire")
-        let hats = Product(productName: "Hats", category: "Human Attire")
-        let glasses = Product(productName: "Glasses", category: "Human Attire")
+        let shirts = Product(productName: "Levis Shirt Size Medium", category: "Human Attire")
+        let pants = Product(productName: "Levis Pants W:32 H:30", category: "Human Attire")
+        let shoes = Product(productName: "Nike AF1", category: "Human Attire")
+        let socks = Product(productName: "Nike Socks", category: "Human Attire")
+        let makeUp = Product(productName: "Maybelline Colossal Kajal", category: "Human Attire")
+        let suits = Product(productName: "Men's Formal Suit Size: Medium", category: "Human Attire")
+        let jewellery = Product(productName: "Necklace", category: "Human Attire")
+        let jackets = Product(productName: "Levis Leather Jacket", category: "Human Attire")
+        let hats = Product(productName: "Champion Hat", category: "Human Attire")
+        let glasses = Product(productName: "Ray-Ban Sunglasses", category: "Human Attire")
     
         self.productList.append(shirts)
         self.productList.append(pants)
@@ -257,11 +364,11 @@ struct ProductSelection: View {
         self.productList.append(glasses)
         
         //declaring entertainment
-        let movies = Product(productName: "Movies", category: "Entertainment")
-        let games  = Product(productName: "Video Games", category: "Entertainment")
-        let toys = Product(productName: "Toys", category: "Entertainment")
-        let sports = Product(productName: "Sports Gear", category: "Entertainment")
-        let bike = Product(productName: "Bicycles", category: "Entertainment")
+        let movies = Product(productName: "The Founder - DVD", category: "Entertainment")
+        let games  = Product(productName: "Spiderman Miles Morales - PS5", category: "Entertainment")
+        let toys = Product(productName: "Hotwheels - Pack of 1", category: "Entertainment")
+        let sports = Product(productName: "Bike Helmet", category: "Entertainment")
+        let bike = Product(productName: "GT Bike", category: "Entertainment")
     
         self.productList.append(movies)
         self.productList.append(games)
@@ -271,17 +378,17 @@ struct ProductSelection: View {
        
         
         //declaring school products
-        let books = Product(productName: "Books", category: "School Supplies")
-        let noteBooks = Product(productName: "Note Books", category: "School Supplies")
-        let bags = Product(productName: "Bags", category: "School Supplies")
-        let pencils = Product(productName: "Pencils", category: "School Supplies")
-        let pens = Product(productName: "Pens", category: "School Supplies")
-        let erasers = Product(productName: "Erasers", category: "School Supplies")
-        let markers = Product(productName: "Markers", category: "School Supplies")
-        let crayons = Product(productName: "Crayons", category: "School Supplies")
-        let poster = Product(productName: "Poster Boards", category: "School Supplies")
-        let calculator = Product(productName: "Calculators", category: "School Supplies")
-        let sharpeners = Product(productName: "Sharpeners", category: "School Supplies")
+        let books = Product(productName: "The Fault in our Stars - Hardcover", category: "School Supplies")
+        let noteBooks = Product(productName: "A4 Notebook", category: "School Supplies")
+        let bags = Product(productName: "School Bag", category: "School Supplies")
+        let pencils = Product(productName: "Pencil", category: "School Supplies")
+        let pens = Product(productName: "Pen", category: "School Supplies")
+        let erasers = Product(productName: "Eraser", category: "School Supplies")
+        let markers = Product(productName: "Marker", category: "School Supplies")
+        let crayons = Product(productName: "Crayon", category: "School Supplies")
+        let poster = Product(productName: "Poster Board", category: "School Supplies")
+        let calculator = Product(productName: "Calculator", category: "School Supplies")
+        let sharpeners = Product(productName: "Sharpener", category: "School Supplies")
         
         self.productList.append(books)
         self.productList.append(noteBooks)
@@ -296,11 +403,11 @@ struct ProductSelection: View {
         self.productList.append(sharpeners)
         
         //delcaring household items
-        let furniture = Product(productName: "Furniture", category: "Household Items")
-        let plants = Product(productName: "Plants", category: "Household Items")
-        let kitchen = Product(productName: "Kitchen Items (Utensils, Fridges)", category: "Household Items")
-        let towels = Product(productName: "Towels", category: "Household Items")
-        let beds = Product(productName: "Beds", category: "Household Items")
+        let furniture = Product(productName: "Study Table", category: "Household Items")
+        let plants = Product(productName: "Money Plant", category: "Household Items")
+        let kitchen = Product(productName: "Silverware", category: "Household Items")
+        let towels = Product(productName: "Hand Towel", category: "Household Items")
+        let beds = Product(productName: "Bed Frame - White", category: "Household Items")
     
         self.productList.append(furniture)
         self.productList.append(plants)
