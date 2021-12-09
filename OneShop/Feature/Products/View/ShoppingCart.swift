@@ -12,6 +12,7 @@ struct ShoppingCart: View {
    @State var theList = [Product]()
     @EnvironmentObject var coreDBHelper : CoreDBHelper
     @State var list = [Product]()
+    @State var total : Double = 0.0
     var body: some View {
       
         ZStack{
@@ -20,12 +21,11 @@ struct ShoppingCart: View {
                 List{
                     ForEach (self.coreDBHelper.productList.enumerated().map({$0}), id: \.element.self){ indx, currentReservation in
         
-                            
                             VStack(alignment: .leading){
                                 Text("Name: \(currentReservation.productName)")
                                     .fontWeight(.bold)
                                 
-                                Text("Category: \(currentReservation.category)")
+                                Text("Price: \(currentReservation.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
 
                             }.padding(20)
@@ -39,14 +39,22 @@ struct ShoppingCart: View {
                             self.coreDBHelper.productList.remove(atOffsets: indexSet)
                         }
                     })
-                    
+                    VStack{
+                        Text("Total: $\(self.total, specifier: "%.2f")")
+                        .fontWeight(.bold)}
+
                 }
+                
             
         }
        
         }
         .onAppear(){
             self.coreDBHelper.getAllProducts()
+            for word in self.coreDBHelper.productList{
+                
+                total+=word.price
+            }
         }
         .onDisappear{
         }
