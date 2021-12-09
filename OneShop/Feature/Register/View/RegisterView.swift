@@ -19,6 +19,7 @@ struct RegisterView: View {
                                        placeholder: "Email",
                                        keyboardType: .emailAddress,
                                        sfSymbol: "envelope")
+                      
                     
                     InputPasswordView(password: $vm.userDetails.password,
                                       placeholder: "Password",
