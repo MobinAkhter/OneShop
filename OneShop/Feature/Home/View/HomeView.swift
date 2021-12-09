@@ -17,6 +17,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
         VStack(alignment: .leading, spacing: 16) {
+            
         VStack(alignment: .leading, spacing: 16) {
             NavigationLink(destination: ProductSelection(), tag: 1, selection: $navigationTag  ){}
             
@@ -27,6 +28,12 @@ struct HomeView: View {
 //            Text("Occupation: \(sessionService.userDetails?.occupation ?? "N/A")")
         }
             Group{
+                Image("grocery")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+//                Image("clothes")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
                 //button to navigate to the Product Selection view
                 Button(action:{
                     self.navigationTag = 1
