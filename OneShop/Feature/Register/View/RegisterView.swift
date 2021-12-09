@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     
+    // Hold our ViewModel
     @StateObject private var vm = RegistrationViewModelImpl(service: RegistrationServiceImpl())
     
     var body: some View {
@@ -23,7 +24,7 @@ struct RegisterView: View {
                     InputPasswordView(password: $vm.userDetails.password,
                                       placeholder: "Password",
                                       sfSymbol: "lock")
-                    Divider()
+                    Divider() // To divide the two main inputs from the following three inputs
                     InputTextFieldView(text: $vm.userDetails.firstName,
                                        placeholder: "First Name",
                                        keyboardType: .namePhonePad,
@@ -37,6 +38,7 @@ struct RegisterView: View {
                                        keyboardType: .namePhonePad,
                                        sfSymbol: nil)
                 }
+                // Base Views
                 ButtonView(title: "Sign up") {
                     // Handle create action here
                     vm.register()

@@ -20,8 +20,9 @@ protocol SessionService {
     var userDetails: SessionUserDetails? {get}
     func logout()
 }
-final class SessionServiceImpl: ObservableObject, SessionService { // 2 options for Observable object WTF
+final class SessionServiceImpl: ObservableObject, SessionService {
     
+    // Using Published properties to listen to the changes and handle them accordingly
     @Published var state: SessionState = .loggedOut
     @Published var userDetails: SessionUserDetails?
     

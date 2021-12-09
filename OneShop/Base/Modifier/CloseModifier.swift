@@ -8,7 +8,7 @@ import SwiftUI
 
 struct CloseModifier: ViewModifier {
 
-@Environment(\.presentationMode) var presentationMode
+@Environment(\.presentationMode) var presentationMode // Allows us to access the environment's presentation. So we can dismiss a view through this
 
 func body(content: Content) -> some View {
     content

@@ -16,6 +16,7 @@ struct InputPasswordView: View {
     private let textFieldLeading: CGFloat = 30
     
     var body: some View {
+        // SecureField used to hide the input that the user enters in the password TextField
         SecureField(placeholder, text: $password)
             .frame(maxWidth: .infinity,
                    minHeight: 44)

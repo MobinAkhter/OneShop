@@ -34,8 +34,8 @@ final class LoginServiceImpl: LoginService{
                     }
             }
         }
-        .receive(on: RunLoop.main)
-        .eraseToAnyPublisher()
+        .receive(on: RunLoop.main) // receive our publisher on the main thread
+        .eraseToAnyPublisher() // turn the publisher into a generic one.
     }
 }
 
