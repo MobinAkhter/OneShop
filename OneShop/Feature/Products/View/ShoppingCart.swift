@@ -10,39 +10,49 @@ import SwiftUI
 struct ShoppingCart: View {
    // var product = ProductSelection()
    @State var theList = [Product]()
+    @EnvironmentObject var coreDBHelper : CoreDBHelper
     @State var list = [Product]()
     var body: some View {
       
-        VStack{
-            Text("Shopping Cart")
-                .font(.callout)
-            List{
-                ForEach(self.list,id: \.id){ currentProduct in
-                    Text("Product: \(currentProduct.productName)")
-                    Text("Category: \(currentProduct.category)")
-                        .font(.system(size: 13))
-                        .fontWeight(.bold)
-                }//for each
-                .onDelete(perform: {indexSet in
-                    self.list.remove(atOffsets: indexSet)
-                })
-                  
-            }
-        }//Vstack
-        .onAppear{
-            print("Count: \(theList.count)")
-            list = theList
+        ZStack{
+  
+            if (self.coreDBHelper.productList.count > 0){
+                List{
+                    ForEach (self.coreDBHelper.productList.enumerated().map({$0}), id: \.element.self){ indx, currentReservation in
+        
+                            
+                            VStack(alignment: .leading){
+                                Text("Name: \(currentReservation.productName)")
+                                    .fontWeight(.bold)
+                                
+                                Text("Category: \(currentReservation.category)")
+                                    .fontWeight(.bold)
+
+                            }.padding(20)
+                        
+                    }//ForEach
+                    .onDelete(perform: {indexSet in
+                        
+                        for index in indexSet{
+                            //ask for confirmation and then delete
+                            self.coreDBHelper.deleteProduct(reservationID: self.coreDBHelper.productList[index].id)
+                            self.coreDBHelper.productList.remove(atOffsets: indexSet)
+                        }
+                    })
+                    
+                }
+            
+        }
+       
+        }
+        .onAppear(){
+            self.coreDBHelper.getAllProducts()
         }
         .onDisappear{
-            list = theList
         }
     }
     
-    
-//    func getProducts(productName: String, category: String){
-//      let product = Product(productName: productName, category: category)
-//        self.productList.append(product)
-//    }
+
 }
 
 struct ShoppingCart_Previews: PreviewProvider {

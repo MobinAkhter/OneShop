@@ -39,6 +39,11 @@
 		B34B7D262739998400498AE7 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D252739998400498AE7 /* LoginCredentials.swift */; };
 		B34B7D292739999500498AE7 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D282739999500498AE7 /* LoginService.swift */; };
 		B34B7D2C273999A600498AE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B7D2B273999A600498AE7 /* LoginViewModel.swift */; };
+		E42D9BD127622F890031D4B5 /* ProductMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D9BD027622F890031D4B5 /* ProductMO.swift */; };
+		E42D9BD3276230980031D4B5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D9BD2276230980031D4B5 /* Persistence.swift */; };
+		E42D9BD5276230E40031D4B5 /* CoreDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D9BD4276230E40031D4B5 /* CoreDBHelper.swift */; };
+		E42D9BD7276239C00031D4B5 /* Product1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D9BD6276239C00031D4B5 /* Product1.swift */; };
+		E42D9BDA27623BFA0031D4B5 /* OneShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E42D9BD827623BFA0031D4B5 /* OneShop.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +78,11 @@
 		B34B7D252739998400498AE7 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		B34B7D282739999500498AE7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B34B7D2B273999A600498AE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E42D9BD027622F890031D4B5 /* ProductMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMO.swift; sourceTree = "<group>"; };
+		E42D9BD2276230980031D4B5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E42D9BD4276230E40031D4B5 /* CoreDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDBHelper.swift; sourceTree = "<group>"; };
+		E42D9BD6276239C00031D4B5 /* Product1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product1.swift; sourceTree = "<group>"; };
+		E42D9BD927623BFA0031D4B5 /* OneShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OneShop.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				84110980275DE9A200CECABA /* ProductHelper.swift */,
+				E42D9BD2276230980031D4B5 /* Persistence.swift */,
+				E42D9BD4276230E40031D4B5 /* CoreDBHelper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				8411097E275DE98000CECABA /* Product.swift */,
+				E42D9BD027622F890031D4B5 /* ProductMO.swift */,
+				E42D9BD6276239C00031D4B5 /* Product1.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 				B34B7CC427398CFD00498AE7 /* Assets.xcassets */,
 				B34B7CC927398CFD00498AE7 /* Info.plist */,
 				B34B7CC627398CFD00498AE7 /* Preview Content */,
+				E42D9BD827623BFA0031D4B5 /* OneShop.xcdatamodeld */,
 			);
 			path = OneShop;
 			sourceTree = "<group>";
@@ -473,10 +488,12 @@
 				8411098D275DEA9500CECABA /* ForwardGeoView.swift in Sources */,
 				84110985275DE9F400CECABA /* ShoppingCart.swift in Sources */,
 				B34B7CDA27398E0900498AE7 /* InputPasswordView.swift in Sources */,
+				E42D9BDA27623BFA0031D4B5 /* OneShop.xcdatamodeld in Sources */,
 				B34B7D15273998B300498AE7 /* RegistrationDetails.swift in Sources */,
 				B34B7CE527398E6300498AE7 /* SessionService.swift in Sources */,
 				B34B7CFD2739977D00498AE7 /* ForgotPasswordView.swift in Sources */,
 				B34B7CDD27398E1400498AE7 /* ButtonView.swift in Sources */,
+				E42D9BD127622F890031D4B5 /* ProductMO.swift in Sources */,
 				B34B7CE927398E7800498AE7 /* SessionUserDetails.swift in Sources */,
 				B34B7D18273998D700498AE7 /* RegistrationService.swift in Sources */,
 				B34B7D082739982200498AE7 /* HomeView.swift in Sources */,
@@ -484,14 +501,17 @@
 				B34B7D03273997CC00498AE7 /* ForgotPasswordViewModel.swift in Sources */,
 				84110983275DE9D000CECABA /* ProductionSelection.swift in Sources */,
 				84110981275DE9A200CECABA /* ProductHelper.swift in Sources */,
+				E42D9BD3276230980031D4B5 /* Persistence.swift in Sources */,
 				B34B7D1B2739990300498AE7 /* RegistrationViewModel.swift in Sources */,
 				8411098F275DEAAF00CECABA /* MapView.swift in Sources */,
+				E42D9BD5276230E40031D4B5 /* CoreDBHelper.swift in Sources */,
 				B34B7D00273997AC00498AE7 /* ForgotPasswordService.swift in Sources */,
 				B34B7D292739999500498AE7 /* LoginService.swift in Sources */,
 				B34B7D112739988500498AE7 /* RegisterView.swift in Sources */,
 				B34B7CD627398DFB00498AE7 /* InputTextFieldView.swift in Sources */,
 				B34B7D232739997100498AE7 /* LoginView.swift in Sources */,
 				8411097F275DE98000CECABA /* Product.swift in Sources */,
+				E42D9BD7276239C00031D4B5 /* Product1.swift in Sources */,
 				B34B7D2C273999A600498AE7 /* LoginViewModel.swift in Sources */,
 				B34B7CE027398E2200498AE7 /* CloseModifier.swift in Sources */,
 			);
@@ -715,6 +735,19 @@
 			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E42D9BD827623BFA0031D4B5 /* OneShop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E42D9BD927623BFA0031D4B5 /* OneShop.xcdatamodel */,
+			);
+			currentVersion = E42D9BD927623BFA0031D4B5 /* OneShop.xcdatamodel */;
+			path = OneShop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B34B7CB527398CFD00498AE7 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProductSelection: View {
     
@@ -14,6 +15,7 @@ struct ProductSelection: View {
     @State private var productList = [Product]()
     @State private var addProducts = [Product]()
     @State private var cartTag : Int? = nil
+    @EnvironmentObject var coreDBHelper: CoreDBHelper
     
     var body: some View {
         NavigationView{
@@ -135,6 +137,8 @@ struct ProductSelection: View {
     
     private func getProducts(productName: String, category: String){
       let product = Product(productName: productName, category: category)
+
+       self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category))
         
         self.addProducts.append(product)
         print(self.addProducts.count)
@@ -286,11 +290,7 @@ struct ProductSelection: View {
     }
 }
 
-struct ProductSelection_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductSelection()
-    }
-}
+
 
 struct CustomRowView : View{
     var product : Product
