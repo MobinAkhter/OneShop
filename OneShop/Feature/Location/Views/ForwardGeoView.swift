@@ -22,7 +22,7 @@ struct ForwardGeoView: View {
     
     var body: some View {
         VStack{
-            NavigationLink(destination: MapView(), tag: 1, selection: $mapViewTag  ){}
+            NavigationLink(destination: MapView(locationHelper: locationHelper, theLat: self.lat, theLng: self.lng),tag: 1, selection: $mapViewTag  ){}
             Text("Enter Your Coordinates")
                 .foregroundColor(.red)
                 .fontWeight(.bold)
@@ -38,7 +38,7 @@ struct ForwardGeoView: View {
             }
             
             Text("\(self.result)")
-                .foregroundColor(.red)
+                .foregroundColor(.blue)
                 .fontWeight(.bold)
                 .font(.system(size: 30))
                 .padding()
@@ -77,8 +77,8 @@ struct ForwardGeoView: View {
                 
                 self.lat = self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
                 self.lng = self.obtainedCoordinates?.coordinate.longitude ?? -45.3432
-           //     let mapView = MyMap(location: (self.obtainedCoordinates)!)
-            //    mapView.getCoors(lat: self.lat, lng: self.lng)
+                let mapView = MyMap(location: (self.obtainedCoordinates)!)
+                mapView.getCoors(lat: self.lat, lng: self.lng)
             }else{
                 self.result = "Unable to get the coordinates for given address"
             }

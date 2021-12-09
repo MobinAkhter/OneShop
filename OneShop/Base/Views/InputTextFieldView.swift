@@ -36,6 +36,8 @@ struct InputTextFieldView: View {
                         .stroke(Color.gray.opacity(0.25))
                 }
             ) // TextField for Email ends here
+            //makes email lowercase
+            .textCase(.lowercase)
     }
 }
 

@@ -8,10 +8,12 @@
 import SwiftUI
 import MapKit
 
+
 struct MapView: View {
     
     @ObservedObject var locationHelper = LocationHelper()
-   
+     var theLat : Double = 0.0
+     var theLng : Double = 0.0
     
     var body: some View {
         VStack{
@@ -27,6 +29,9 @@ struct MapView: View {
             
         }.onAppear(){
             self.locationHelper.checkPermission()
+         //   var lol = MyMap(location: (locationHelper.currentLocation!)
+          //  lol.getCoors(lat: self.theLat, lng: self.theLng)
+            
         }
     }
     
@@ -40,16 +45,23 @@ struct MapView_Previews: PreviewProvider {
 }
 
 struct MyMap: UIViewRepresentable{
-
+    
+    
     private var location: CLLocation
     
-    @State private var theLat : Double = 0.0
-    @State private var theLng : Double = 0.0
+    @State private var theLat : Double?
+    @State private var theLng : Double?
     @ObservedObject var locationHelper = LocationHelper()
     let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
     
+    
     init(location: CLLocation){
         self.location = location
+    }
+    
+    func getCoors(lat : Double, lng: Double){
+        self.theLat = lat
+        self.theLng = lng
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -79,11 +91,6 @@ struct MyMap: UIViewRepresentable{
     }
     
     
-    func getCoors(lat: Double, lng : Double){
-        self.theLat = lat
-        self.theLng = lng
-    }
-    
     func updateUIView(_ uiView: MKMapView, context: Context) {
         //update map to show current location
         
@@ -94,7 +101,7 @@ struct MyMap: UIViewRepresentable{
         if(self.locationHelper.currentLocation != nil){
             sourceCoordinates = self.locationHelper.currentLocation!.coordinate
         }else{
-            sourceCoordinates = CLLocationCoordinate2D(latitude: 53.2334, longitude: -79.3233)
+            sourceCoordinates = CLLocationCoordinate2D(latitude: self.theLat ?? 43.2323, longitude: self.theLng ?? -73.54545)
         }
         
         region = MKCoordinateRegion(center: sourceCoordinates, span: span)

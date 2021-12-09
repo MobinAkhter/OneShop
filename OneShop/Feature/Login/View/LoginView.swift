@@ -22,10 +22,11 @@ struct LoginView: View {
                                    placeholder: "Email",
                                    keyboardType: .emailAddress,
                                    sfSymbol: "envelope")
+                 
                 InputPasswordView(password: $vm.credentials.password,
                                    placeholder: "Password",
                                    sfSymbol: "lock")
-            }
+            }//VStack-Inner
             HStack{
                 Spacer()
                 Button(action: {
@@ -39,7 +40,7 @@ struct LoginView: View {
                     content: {
                         ForgotPasswordView()
                     })
-            }
+            }//HStack-Inner
             
             VStack(spacing: 16) {
                 // Using Base View ButtonView
@@ -59,10 +60,10 @@ struct LoginView: View {
                        content: {
                         RegisterView()
                        })
-            }
+            }//VStack-Outer
             
             
-        }
+        }//VStack
         .padding(.horizontal, 15)
         .navigationTitle("Login")
         .alert(isPresented: $vm.hasError,
