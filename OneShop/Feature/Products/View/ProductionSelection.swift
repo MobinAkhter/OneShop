@@ -284,9 +284,7 @@ struct ProductSelection: View {
     
     private func loadProducts(){
         
-        print("**************")
-                print("IUrgent:\(sessionService.userDetails?.email)")
-                print("**************")
+ 
         //declaring electronics
         let tv = Product(productName: "Sony 43-Inch Bravia TV", category: "Electronics", price: 1300.00)
         let phone = Product(productName: "iPhone 13", category: "Electronics", price: 1800.00)
