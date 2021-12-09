@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  OneShop
 //
-//  Created by user198375 on 11/8/21.
+//  Created by Mobin Akhter on 11/8/21.
 //
 
 import SwiftUI

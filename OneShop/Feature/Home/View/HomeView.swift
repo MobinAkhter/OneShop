@@ -2,8 +2,8 @@
 //  HomeView.swift
 //  OneShop
 //
-//  Created by user198375 on 11/8/21.
-//  Code reference: Youtube Video
+//  Created by Mobin Akhter on 11/8/21.
+//  Overall code reference: Class lectures, youtube videos, and online articles, as well as apple docs
 
 import SwiftUI
 
