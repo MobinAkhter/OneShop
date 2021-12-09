@@ -23,13 +23,9 @@ struct ProductSelection: View {
     
     var body: some View {
         NavigationView{
-        
         ZStack{
          
             NavigationLink(destination: ShoppingCart(theList: addProducts), tag: 1, selection: $cartTag){}
-        
-            Text("Categories")
-                .font(.title2)
             List{
                 Section(header: Text("Electonics")){
                     
@@ -39,13 +35,13 @@ struct ProductSelection: View {
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
                                 
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
-
+                                
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
@@ -72,7 +68,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -104,7 +100,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -136,7 +132,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -168,7 +164,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -200,7 +196,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -232,7 +228,7 @@ struct ProductSelection: View {
                             VStack(alignment: .leading){
                                 Text("\(currentItem.productName)")
                                     .fontWeight(.bold)
-                                Text("\(currentItem.price, specifier: "%.2f")")
+                                Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
@@ -264,13 +260,13 @@ struct ProductSelection: View {
             self.loadProducts()
         }
         
-        .toolbar{
-            Button(action: {
-                self.cartTag = 1
-            }){
-                Text("View Shopping Cart")
-            }
-        }
+//        .toolbar{
+//            Button(action: {
+//                self.cartTag = 1
+//            }){
+//                Text("View Shopping Cart")
+//            }
+//        }
         
     }
     

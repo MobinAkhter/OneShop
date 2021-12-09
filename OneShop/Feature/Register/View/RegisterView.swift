@@ -34,10 +34,6 @@ struct RegisterView: View {
                                        placeholder: "Last Name",
                                        keyboardType: .namePhonePad,
                                        sfSymbol: nil)
-                    InputTextFieldView(text: $vm.userDetails.occupation,
-                                       placeholder: "Occupation",
-                                       keyboardType: .namePhonePad,
-                                       sfSymbol: nil)
                 }
                 // Base Views
                 ButtonView(title: "Sign up") {
