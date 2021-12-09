@@ -38,6 +38,11 @@ struct ShoppingCart: View {
                             self.coreDBHelper.deleteProduct(reservationID: self.coreDBHelper.productList[index].id)
                             self.coreDBHelper.productList.remove(atOffsets: indexSet)
                         }
+                        total=0.0
+                        for word in self.coreDBHelper.productList{
+                            
+                            total+=word.price
+                        }
                     })
                     VStack{
                         Text("Total: $\(self.total, specifier: "%.2f")")
