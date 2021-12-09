@@ -15,7 +15,7 @@ struct ButtonView: View {
     let background: Color
     let foreground: Color
     let border: Color
-    let handler: ActionHandler
+    let handler: ActionHandler // To assign an action for our button when user taps/clicks it
     
     private let cornerRadius: CGFloat = 10
     

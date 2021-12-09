@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct InputTextFieldView: View {
-    @Binding var text: String
+    @Binding var text: String // To bind this value to the textfield when user types
     let placeholder: String
-    let keyboardType: UIKeyboardType
-    let sfSymbol: String?
+    let keyboardType: UIKeyboardType // Keyboard type for email addresses
+    let sfSymbol: String? // Icon for email and password, dont need it in all the textfields so its optional
     
-    private let textFieldLeading: CGFloat = 30
+    private let textFieldLeading: CGFloat = 30 // Use this to handle the layout where the symbol is placed in the textfield
     
     
     var body: some View {
         // Code responsible for Email TextField
         TextField(placeholder, text: $text)
+            .autocapitalization(.none)
             .frame(maxWidth: .infinity,
                    minHeight: 44)
             .padding(.leading, sfSymbol == nil ? textFieldLeading / 2 : textFieldLeading)

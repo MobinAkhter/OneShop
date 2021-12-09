@@ -9,14 +9,15 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var showRegistration = false
-    @State private var showForgotPassword = false
+    @State private var showRegistration = false  // is used with sheet modifier to handle presentation. When user clicks on register button, this value toggles to true
+    @State private var showForgotPassword = false // same as above but with forgot password button this time
     
     @StateObject private var vm = LoginViewModelImpl(service: LoginServiceImpl())
     
     var body: some View {
         VStack(spacing: 16) {
             VStack(spacing: 16) {
+                // Using Base Views InputTextFieldView
                 InputTextFieldView(text: $vm.credentials.email,
                                    placeholder: "Email",
                                    keyboardType: .emailAddress,
@@ -42,6 +43,7 @@ struct LoginView: View {
             }//HStack-Inner
             
             VStack(spacing: 16) {
+                // Using Base View ButtonView
                 ButtonView(title: "Login"){
                     // Handle login action
                     vm.login()
@@ -53,6 +55,7 @@ struct LoginView: View {
                     // Handle presentation to register
                     showRegistration.toggle()
                 }
+                // Binding our showRegistration to the sheet modifier. If its true, display RegisterView()
                 .sheet(isPresented: $showRegistration,
                        content: {
                         RegisterView()
