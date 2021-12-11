@@ -16,9 +16,8 @@ struct ShoppingCart: View {
     var body: some View {
         
         Text(" Your Shopping Cart")
-            .foregroundColor(.green)
             .fontWeight(.bold)
-            .font(.system(size: 30))
+            .font(.title)
             .padding()
         ZStack{
             
