@@ -36,7 +36,8 @@ Add items to shopping cart persistently via the use of local database so that it
 Logout
 Most importantly, Session Management has been handled, so for example if the user logs out, they can not access the app without logging in first. 
 
-What's next: WatchOS (Jatin) and the few minor (recommnended) changes that are left.
+What's next: WatchOS (Jatin) and the few minor (recommnended) changes that are left. 
+P.S, the screenshots below will be updated once the app has been finalized for submission
 
 
 ![registerSheet](https://user-images.githubusercontent.com/55329336/145449135-f55bd78b-ab03-4c61-b107-48cab1d3e1a1.png)
