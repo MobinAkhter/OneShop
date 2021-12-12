@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShoppingCart: View {
-   // var product = ProductSelection()
+
    @State var theList = [Product]()
     @EnvironmentObject var coreDBHelper : CoreDBHelper
     @State var list = [Product]()
@@ -19,9 +19,8 @@ struct ShoppingCart: View {
     var body: some View {
         
         Text(" Your Shopping Cart")
-            .foregroundColor(.green)
             .fontWeight(.bold)
-            .font(.system(size: 30))
+            .font(.title)
             .padding()
         ZStack{
             
