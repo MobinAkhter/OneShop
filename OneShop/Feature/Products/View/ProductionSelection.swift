@@ -433,23 +433,4 @@ struct ProductSelection: View {
 
 
 
-struct CustomRowView : View{
-    var product : Product
-    
-    var body: some View{
-    VStack(alignment: .leading){
-        Text("\(product.productName)")
-            .fontWeight(.bold)
-            
-        Text("Tap to Add to Cart")
-            .font(.callout)
-            .italic()
-
-        Spacer()
-    }.padding(20)
-        
-    }
-}
-
-
 
