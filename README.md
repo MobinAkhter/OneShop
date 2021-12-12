@@ -4,11 +4,12 @@ Term Project for PROG31975 Advanced Mobile App Development with professor Jigish
 OneShop is an application that acts like an ecommers application. Users are allowed to sing up, log in, select products, add to cart, and view store loactions to purchase them.
 
 Roles:
-Mobin - Sign Up/ Log In using Firebase Database as well as push notifcations. Cleaning up the UI and app flow. If time permits, implement google authentication.
+Mobin - Sign Up/ Log In using Firebase Database as well as push notifcations. Push notifications did not work because initially to fix it to work properly in XCode, i deleted it which was not the right decision. The invite from the prof was then not able to be accepted since the apple ID linked with sheridan did not exist. 
+Therefore, I am cleaning up the UI (throughout the app, making it appear more professional) and app flow. Next steps for me would be to implement google authentication, but this will be done in the winter break.
 
 Anais - Allowing user to select products and placing them into shopping cart. Due to the over abundance of items and too many apis, they will be sepereated into categories and each csategories will. 
         contain items  which aren't desribed in specifcity (Ex: Instead of iphone, andriod or samsung, the product will be labeled as phone). 
-        Displaying shopping cart view, due to issues with using the swift package manager which somehow gave me unkwon erros, Unfortunatly,I have to implement it the shopping cart without using the database.
+        Displaying shopping cart view, due to issues with using the swift package manager which somehow gave me unkwon erros, Unfortunatly,I have to implement it the shopping cart without using the database. Scratch this, Jatin has implemented the database for the shopping cart.
         Location Services
        
         
@@ -27,8 +28,15 @@ What's next : Help page, push notification and styling UI.
 Functionalities provided by the app: 
 Register user along with necessary validation
 Login user with validation
+User is able to re-set their password through a link provided to their email incase they have forgotten it. Note, all the necessary user inputs are registered to Firebase for the backend to function properly in the latter stages of the app flow, such as shopping cart.
 View available products
+Geocoding
+Mapview
 Add items to shopping cart persistently via the use of local database so that it is for each user on the device.
+Logout
+Most importantly, Session Management has been handled, so for example if the user logs out, they can not access the app without logging in first. 
+
+What's next: WatchOS (Jatin) and the few minor (recommnended) changes that are left.
 
 
 ![registerSheet](https://user-images.githubusercontent.com/55329336/145449135-f55bd78b-ab03-4c61-b107-48cab1d3e1a1.png)
