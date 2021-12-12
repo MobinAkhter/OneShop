@@ -24,9 +24,8 @@ struct ForwardGeoView: View {
         VStack{
             NavigationLink(destination: MapView(locationHelper: locationHelper, theLat: self.lat, theLng: self.lng),tag: 1, selection: $mapViewTag  ){}
             Text("Enter Your Coordinates")
-                .foregroundColor(.orange)
                 .fontWeight(.bold)
-                .font(.system(size: 30))
+                .font(.title)
                 .padding()
             
             Form{
@@ -35,40 +34,33 @@ struct ForwardGeoView: View {
                 TextField("Enter Your City", text: $city)
                 
                 TextField("Enter Your Country", text: $country)
+                
             }
-            
             Text("\(self.result)")
-                .foregroundColor(.blue)
+                .foregroundColor(.black)
                 .fontWeight(.bold)
                 .font(.system(size: 25))
                 .padding()
-            
-            Text("Enter these coordinates to your phone")
-            
-            Button(action: {
+            ButtonView(title: "Calculate Coordinates"){
                 let address = "\(self.street), \(self.city), \(self.country)"
                 self.performGeocoding(address: address)
-            }){
-                Text("Enter")
-            }
-            .padding(10)
-            .background(Color.purple)
-            .foregroundColor(.white)
-            .font(.title2)
+            }.padding(.horizontal, 16)
             
-            Button(action:{
+            
+            
+                        
+            
+            Spacer()
+            ButtonView(title: "View Map",
+                       background: .clear,
+                       foreground: .blue,
+                       border: .blue){
                 self.mapViewTag = 1
                 print("Value is \(self.$mapViewTag)")
              
-            }){
-                Text("Click Here To View Map")
-            }
-            .padding(10)
-            .background(Color.white)
-            .foregroundColor(.red)
-            .font(.title2)
+            }.padding(.horizontal, 16)
+                        
             
-            Spacer()
 
         }
     }
@@ -81,7 +73,7 @@ struct ForwardGeoView: View {
             if (error == nil && coordinates != nil){
                 self.obtainedCoordinates = coordinates!
                 
-                self.result = "The latititude is \(coordinates!.coordinate.latitude) \n The longitude is : \(coordinates!.coordinate.longitude)"
+                self.result = "The latititude is \(coordinates!.coordinate.latitude) \n The longitude is  \(coordinates!.coordinate.longitude)"
                 
                 self.lat =  self.obtainedCoordinates?.coordinate.latitude ?? 34.2323
                 
