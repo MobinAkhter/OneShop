@@ -12,6 +12,7 @@ final class ProductMO: NSManagedObject{
     @NSManaged var category : String
     @NSManaged var price : Double
     @NSManaged var email : String
+    @NSManaged var quantity : Double
     @NSManaged var dateAdded: Date
 
 }
@@ -19,6 +20,6 @@ final class ProductMO: NSManagedObject{
 extension ProductMO{
     
     func converToProduct() -> Product1{
-        Product1(productName: productName, category: category, price: price, email: email)
+        Product1(productName: productName, category: category, price: price, email: email, quantity: quantity)
     }
 }

@@ -23,7 +23,7 @@ struct Product: Identifiable, Hashable{
         self.productName = productName
         self.category = category
         self.price = price
-      
+       
     }
     
    

@@ -16,9 +16,12 @@ struct ProductSelection: View {
     @State private var addProducts = [Product]()
     @State private var cartTag : Int? = nil
     @EnvironmentObject var coreDBHelper: CoreDBHelper
+    var numberOfQuantity = ["1","2","3","4","5","6","7","8","9","10"]
     @State private var alertMessage = ""
     @State private var activate: Bool = false
-    @EnvironmentObject var sessionService: SessionServiceImpl 
+    @State private var quantity = ["","","","","","","","",""]
+    //@State private var quantity : String = ""
+    @EnvironmentObject var sessionService: SessionServiceImpl
 
     
     var body: some View {
@@ -38,6 +41,13 @@ struct ProductSelection: View {
                                 Text("$\(currentItem.price, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                 
+                                Picker("Please choose quantity", selection: $quantity[indx]) {
+                                    ForEach(numberOfQuantity, id: \.self) {
+                                        Text($0)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                                
                                 Text("Tap to Add to Cart")
                                     .font(.callout)
                                     .italic()
@@ -45,8 +55,12 @@ struct ProductSelection: View {
                                 Spacer()
                             }.padding(20)
                         .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
+                            
+                            var a : String = ""
+                            a = self.quantity[indx]
+                           
+                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price, quantity: a)
+                         
                             self.activate = true
                         }
                             .alert(isPresented: self.$activate){
@@ -56,203 +70,201 @@ struct ProductSelection: View {
                                 dismissButton: .default(Text("Done"))
                             )
                         }//alert
-                        
-                        
                         }
                     }
                 }//section 1
                 
-                Section(header: Text("Food & Drinks")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "Food & Drinks"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 2
-                
-                Section(header: Text("Health")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "Health"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 3
-                
-                Section(header: Text("Human Attire")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "Human Attire"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 4
-                
-                Section(header: Text("Entertainment")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "Entertainment"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 5
-                
-                Section(header: Text("School Supplies")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "School Supplies"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 6
-                
-                Section(header: Text("Household Items")){
-                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
-                        if(currentItem.category == "Household Items"){
-                            VStack(alignment: .leading){
-                                Text("\(currentItem.productName)")
-                                    .fontWeight(.bold)
-                                Text("$\(currentItem.price, specifier: "%.2f")")
-                                    .fontWeight(.bold)
-                                Text("Tap to Add to Cart")
-                                    .font(.callout)
-                                    .italic()
-
-                                Spacer()
-                            }.padding(20)
-                        .onTapGesture{
-                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
-                            print("Selected \(currentItem.productName)")
-                            self.activate = true
-                        }
-                            .alert(isPresented: self.$activate){
-                            Alert(
-                                title: Text("Success"),
-                                message: Text("Product Added to Cart!"),
-                                dismissButton: .default(Text("Done"))
-                            )
-                        }//alert
-                        
-                        
-                        }
-                    }
-                }//section 7
+//                Section(header: Text("Food & Drinks")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "Food & Drinks"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//                              Text("Indx: \(indx)")
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 2
+//
+//                Section(header: Text("Health")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "Health"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 3
+//
+//                Section(header: Text("Human Attire")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "Human Attire"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 4
+//
+//                Section(header: Text("Entertainment")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "Entertainment"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 5
+//
+//                Section(header: Text("School Supplies")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "School Supplies"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 6
+//
+//                Section(header: Text("Household Items")){
+//                    ForEach(self.productList.enumerated().map({$0}), id: \.element.self){indx, currentItem in
+//                        if(currentItem.category == "Household Items"){
+//                            VStack(alignment: .leading){
+//                                Text("\(currentItem.productName)")
+//                                    .fontWeight(.bold)
+//                                Text("$\(currentItem.price, specifier: "%.2f")")
+//                                    .fontWeight(.bold)
+//                                Text("Tap to Add to Cart")
+//                                    .font(.callout)
+//                                    .italic()
+//
+//                                Spacer()
+//                            }.padding(20)
+//                        .onTapGesture{
+//                            getProducts(productName: currentItem.productName, category: currentItem.category, price: currentItem.price)
+//                            print("Selected \(currentItem.productName)")
+//                            self.activate = true
+//                        }
+//                            .alert(isPresented: self.$activate){
+//                            Alert(
+//                                title: Text("Success"),
+//                                message: Text("Product Added to Cart!"),
+//                                dismissButton: .default(Text("Done"))
+//                            )
+//                        }//alert
+//
+//
+//                        }
+//                    }
+//                }//section 7
             }
           }
         }
@@ -270,13 +282,16 @@ struct ProductSelection: View {
         
     }
     
-    private func getProducts(productName: String, category: String,price:Double){
+    private func getProducts(productName: String, category: String,price:Double, quantity: String){
+        
         let product = Product(productName: productName, category: category,price:price)
         var emailId = sessionService.userDetails?.email
         let removeCharacters: Set<Character> = ["(", ")","O","p","t","i","o","n","a","l"]
         emailId?.removeAll(where: { removeCharacters.contains($0) } )
-        self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category, price: price,email:emailId ?? ""))
-        
+        var a = Double(quantity) ?? 0.0
+        print("****************")
+        print("Let's See what we got: \(a)")
+        self.coreDBHelper.insertProduct(newProduct: Product1(productName: productName, category: category, price: price,email:emailId ?? "",quantity: a))
         self.addProducts.append(product)
         print(self.addProducts.count)
        

@@ -15,16 +15,18 @@ class Product1: ObservableObject{
     var category : String = ""
     var price: Double = 0.0
     var email: String = ""
+    var quantity: Double = 0.0
     
     init(){
         
     }
     
-    init(productName: String, category: String, price: Double, email: String){
+    init(productName: String, category: String, price: Double, email: String, quantity: Double){
         self.productName = productName
         self.category = category
         self.price = price
         self.email = email
+        self.quantity = quantity
     }
     
    

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ShoppingCart: View {
 
-   @State var theList = [Product]()
     @EnvironmentObject var coreDBHelper : CoreDBHelper
     @State var list = [Product]()
     @State var total : Double = 0.0
@@ -36,6 +35,10 @@ struct ShoppingCart: View {
                                     
                                 
                                 Text("Price: $\(currentReservation.price, specifier: "%.2f")")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.red)
+                                
+                                Text("Quantity: \(currentReservation.quantity, specifier: "%.2f")")
                                     .fontWeight(.bold)
                                     .foregroundColor(.red)
 
